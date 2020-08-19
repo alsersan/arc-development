@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import theme from "./ui/Theme";
 
 import Header from "./ui/Header";
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <HashRouter basename="/">
           <Header
             routeIndex={routeIndex}
             setRouteIndex={setRouteIndex}
@@ -59,7 +59,7 @@ const App = () => {
             />
           </Switch>
           <Footer setRouteIndex={setRouteIndex} setMenuIndex={setMenuIndex} />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </div>
   );
