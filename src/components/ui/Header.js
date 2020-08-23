@@ -12,6 +12,7 @@ import { useTheme } from "@material-ui/core/styles";
 import logo from "../../assets/logo.svg";
 import SideDrawerMenu from "./SideDrawerMenu";
 import HeaderTabs from "./HeaderTabs";
+import CompanyLogo from "./CompanyLogo";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarMargin: {
     height: "5.5rem",
+
     [theme.breakpoints.down("md")]: {
       height: "4.5rem",
     },
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     height: "5.5rem",
+    textTransform: "none",
     [theme.breakpoints.down("md")]: {
       height: "4.5rem",
     },
@@ -113,7 +116,8 @@ const Header = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
               className={classes.logoContainer}
               onClick={() => setRouteIndex(0)}
             >
-              <img alt="company logo" src={logo} className={classes.logo} />
+              {/* <img alt="company logo" src={logo} className={classes.logo} /> */}
+              <CompanyLogo className={classes.logo} />
             </Button>
             {matches ? (
               <SideDrawerMenu
