@@ -4,6 +4,7 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import theme from "./ui/Theme";
 
 import Header from "./ui/Header";
+import Home from "./Home";
 import Footer from "./ui/Footer";
 
 const App = () => {
@@ -20,11 +21,7 @@ const App = () => {
             setMenuIndex={setMenuIndex}
           />
           <Switch>
-            <Route
-              exact
-              path="/"
-              component={() => <div>{console.log("renderHome")}Home</div>}
-            />
+            <Route exact path="/" component={Home} />
             <Route
               exact
               path="/services"

@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     height: "45px",
     margin: "0 20px",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
