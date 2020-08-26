@@ -9,7 +9,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
-import logo from "../../assets/logo.svg";
 import SideDrawerMenu from "./SideDrawerMenu";
 import HeaderTabs from "./HeaderTabs";
 import CompanyLogo from "./CompanyLogo";
@@ -116,7 +115,6 @@ const Header = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
               className={classes.logoContainer}
               onClick={() => setRouteIndex(0)}
             >
-              {/* <img alt="company logo" src={logo} className={classes.logo} /> */}
               <CompanyLogo className={classes.logo} />
             </Button>
             {matches ? (
