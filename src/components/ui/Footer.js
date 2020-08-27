@@ -119,7 +119,7 @@ const Footer = ({ setRouteIndex, setMenuIndex }) => {
                   setMenuIndex(2);
                 }}
               >
-                Mobile App Development
+                iOS/Android App Development
               </Grid>
               <Grid
                 item
