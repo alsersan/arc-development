@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6a0a6a3a4ca78fb2d30d004a0e1743b2",
+    "revision": "c5033a736549548f73cee15c3feedbf7",
     "url": "/arc-development/index.html"
   },
   {
-    "revision": "db73d64d4ea9fe6291e9",
-    "url": "/arc-development/static/js/2.a2a0b64c.chunk.js"
+    "revision": "804cfae9fe0e15fe1779",
+    "url": "/arc-development/static/js/2.d6750e22.chunk.js"
   },
   {
     "revision": "14c54f8d621b663941f58f815237ec03",
-    "url": "/arc-development/static/js/2.a2a0b64c.chunk.js.LICENSE.txt"
+    "url": "/arc-development/static/js/2.d6750e22.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "278557e0595af3ad6477",
-    "url": "/arc-development/static/js/main.a5ee1e49.chunk.js"
+    "revision": "2eac186784949bdd6192",
+    "url": "/arc-development/static/js/main.43a93d4a.chunk.js"
   },
   {
     "revision": "24ddae678c464ff103fe",
     "url": "/arc-development/static/js/runtime-main.bd6f039d.js"
+  },
+  {
+    "revision": "350387f5ee9e1569dc00c4952fca7cc8",
+    "url": "/arc-development/static/media/Custom Software Icon.350387f5.svg"
   },
   {
     "revision": "e227d87b2dec28a248985906d655c9ed",
@@ -32,11 +36,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arc-development/static/media/instagram.0b117993.svg"
   },
   {
-    "revision": "57d64f65026b8edaf73e17d8a41e6f23",
-    "url": "/arc-development/static/media/logo.57d64f65.svg"
+    "revision": "6838a9fb85f01988c85e38475ae59fb0",
+    "url": "/arc-development/static/media/mobileIcon.6838a9fb.svg"
   },
   {
     "revision": "435fc4bc44c1e90d5f00f4efccdb9b1d",
     "url": "/arc-development/static/media/twitter.435fc4bc.svg"
+  },
+  {
+    "revision": "6b90d7dca8c7d0d5340cc0748c6bdb3c",
+    "url": "/arc-development/static/media/websiteIcon.6b90d7dc.svg"
   }
 ]);
