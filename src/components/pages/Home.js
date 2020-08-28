@@ -7,11 +7,11 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import animationData from "../animations/landinganimation/data";
-import ButtonArrow from "./ui/ButtonArrow";
-import customSoftwareIcon from "../assets/Custom Software Icon.svg";
-import appDevelopmentIcon from "../assets/mobileIcon.svg";
-import websiteIcon from "../assets/websiteIcon.svg";
+import animationData from "../../animations/landinganimation/data";
+import ButtonArrow from "../ui/ButtonArrow";
+import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
+import appDevelopmentIcon from "../../assets/mobileIcon.svg";
+import websiteIcon from "../../assets/websiteIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -212,7 +212,7 @@ const Home = () => {
               Extend Functionality. Extend Acccess. Increase Engagement.
             </Typography>
             <Typography variant="subtitle1">
-              Integrate your Web experiennce or create a standalome app{" "}
+              Integrate your Web experiennce or create a standalone app{" "}
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
             <Button className={classes.learnButtonServices} variant="outlined">

@@ -9,9 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
-import SideDrawerMenu from "./SideDrawerMenu";
-import HeaderTabs from "./HeaderTabs";
-import CompanyLogo from "./CompanyLogo";
+import SideDrawerMenu from "./components/SideDrawerMenu";
+import HeaderTabs from "./components/HeaderTabs";
+import CompanyLogo from "./components/CompanyLogo";
 
 function ElevationScroll(props) {
   const { children } = props;
