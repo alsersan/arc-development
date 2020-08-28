@@ -6,12 +6,15 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 import animationData from "../../animations/landinganimation/data";
 import ButtonArrow from "../ui/ButtonArrow";
 import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
 import appDevelopmentIcon from "../../assets/mobileIcon.svg";
 import websiteIcon from "../../assets/websiteIcon.svg";
+import revolutionBackground from "../../assets/repeatingBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -64,15 +67,21 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10rem",
     padding: "0 4rem",
     [theme.breakpoints.down("sm")]: {
-      marginTop: "6rem",
+      marginTop: "8rem",
     },
     [theme.breakpoints.down("xs")]: {
       padding: "0 1.5rem",
-      marginTop: "4rem",
+      marginTop: "6rem",
     },
   },
   servicesItemContainer: {
     marginBottom: "6rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "4rem",
+    },
   },
   serviceHeader: {
     marginBottom: "1rem",
@@ -92,6 +101,38 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     marginLeft: "2rem",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: 0,
+      width: "10rem",
+    },
+  },
+  revolutionContainer: {
+    margin: "10rem 0",
+    backgroundImage: `url(${revolutionBackground})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    height: "70rem",
+    textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      height: "50rem",
+      margin: "8rem 0",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "40rem",
+      margin: "6rem 0",
+    },
+    width: "100%",
+  },
+  revolutionCard: {
+    boxShadow: theme.shadows[10],
+    padding: "10rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "6rem 2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: "3rem 0.5rem",
+    },
   },
 }));
 
@@ -102,7 +143,7 @@ const Home = () => {
 
   const defaultOptions = {
     loop: true,
-    autoplay: true,
+    autoplay: false,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -212,7 +253,7 @@ const Home = () => {
               Extend Functionality. Extend Acccess. Increase Engagement.
             </Typography>
             <Typography variant="subtitle1">
-              Integrate your Web experiennce or create a standalone app{" "}
+              Integrate your Web experience or create a standalone app{" "}
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
             <Button className={classes.learnButtonServices} variant="outlined">
@@ -246,7 +287,7 @@ const Home = () => {
               Reach more. Discover More. Sell More.
             </Typography>
             <Typography variant="subtitle1">
-              Optimized for search Engines, built for speed.
+              Optimized for search engines, built for speed.
             </Typography>
             <Button className={classes.learnButtonServices} variant="outlined">
               <span style={{ marginRight: 5 }}>Learn More</span>
@@ -265,6 +306,43 @@ const Home = () => {
             />
           </Grid>
         </Grid>
+      </Grid>
+
+      {/*----Revolution Block----*/}
+      <Grid
+        item
+        container
+        alignItems="center"
+        justify="center"
+        className={classes.revolutionContainer}
+      >
+        <Card className={classes.revolutionCard}>
+          <CardContent>
+            <Grid container direction="column" alignItems="center">
+              <Grid item>
+                <Typography variant="h3" gutterBottom>
+                  The Revolution
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1" gutterBottom>
+                  Visionary insights coupled with cutting-edge technology is a
+                  recipe for revolution.
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Button variant="outlined" className={classes.learnButtonHero}>
+                  <span style={{ marginRight: 5 }}>Learn More</span>
+                  <ButtonArrow
+                    height={20}
+                    width={20}
+                    fill={theme.palette.primary.main}
+                  />
+                </Button>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
       </Grid>
     </Grid>
   );
