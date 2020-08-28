@@ -1,26 +1,27 @@
 {
   "files": {
-    "main.js": "/arc-development/static/js/main.43a93d4a.chunk.js",
-    "main.js.map": "/arc-development/static/js/main.43a93d4a.chunk.js.map",
+    "main.js": "/arc-development/static/js/main.5069d29e.chunk.js",
+    "main.js.map": "/arc-development/static/js/main.5069d29e.chunk.js.map",
     "runtime-main.js": "/arc-development/static/js/runtime-main.bd6f039d.js",
     "runtime-main.js.map": "/arc-development/static/js/runtime-main.bd6f039d.js.map",
-    "static/js/2.d6750e22.chunk.js": "/arc-development/static/js/2.d6750e22.chunk.js",
-    "static/js/2.d6750e22.chunk.js.map": "/arc-development/static/js/2.d6750e22.chunk.js.map",
+    "static/js/2.7b874633.chunk.js": "/arc-development/static/js/2.7b874633.chunk.js",
+    "static/js/2.7b874633.chunk.js.map": "/arc-development/static/js/2.7b874633.chunk.js.map",
     "index.html": "/arc-development/index.html",
-    "precache-manifest.f92a6f761bd922584235c89677398d08.js": "/arc-development/precache-manifest.f92a6f761bd922584235c89677398d08.js",
+    "precache-manifest.55d239de49735f36d17e992f960bb8ef.js": "/arc-development/precache-manifest.55d239de49735f36d17e992f960bb8ef.js",
     "service-worker.js": "/arc-development/service-worker.js",
-    "static/js/2.d6750e22.chunk.js.LICENSE.txt": "/arc-development/static/js/2.d6750e22.chunk.js.LICENSE.txt",
+    "static/js/2.7b874633.chunk.js.LICENSE.txt": "/arc-development/static/js/2.7b874633.chunk.js.LICENSE.txt",
     "static/media/Custom Software Icon.svg": "/arc-development/static/media/Custom Software Icon.350387f5.svg",
     "static/media/Footer Adornment.svg": "/arc-development/static/media/Footer Adornment.e227d87b.svg",
     "static/media/facebook.svg": "/arc-development/static/media/facebook.73caaa01.svg",
     "static/media/instagram.svg": "/arc-development/static/media/instagram.0b117993.svg",
     "static/media/mobileIcon.svg": "/arc-development/static/media/mobileIcon.6838a9fb.svg",
+    "static/media/repeatingBackground.svg": "/arc-development/static/media/repeatingBackground.c608f23f.svg",
     "static/media/twitter.svg": "/arc-development/static/media/twitter.435fc4bc.svg",
     "static/media/websiteIcon.svg": "/arc-development/static/media/websiteIcon.6b90d7dc.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.bd6f039d.js",
-    "static/js/2.d6750e22.chunk.js",
-    "static/js/main.43a93d4a.chunk.js"
+    "static/js/2.7b874633.chunk.js",
+    "static/js/main.5069d29e.chunk.js"
   ]
 }
