@@ -124,6 +124,7 @@ const useStyles = makeStyles((theme) => ({
   },
   revolutionCard: {
     boxShadow: theme.shadows[10],
+    backgroundColor: "rgba(255,255,255,0.8)",
     padding: "8rem 10rem",
     [theme.breakpoints.down("md")]: {
       padding: "6rem 2rem",
