@@ -49,6 +49,11 @@ export default createMuiTheme({
       fontSize: "1.75rem",
       color: arcBlue,
     },
+    subtitle2: {
+      color: "white",
+      fontSize: "1.25rem",
+      fontWeight: "300",
+    },
     subtitle1: {
       color: arcGrey,
       fontSize: "1.25rem",

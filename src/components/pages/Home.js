@@ -15,6 +15,7 @@ import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
 import appDevelopmentIcon from "../../assets/mobileIcon.svg";
 import websiteIcon from "../../assets/websiteIcon.svg";
 import revolutionBackground from "../../assets/repeatingBackground.svg";
+import infoBackground from "../../assets/infoBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -57,21 +58,21 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.light,
     },
   },
-  learnButtonHero: {
+  learnButtonBig: {
     ...theme.typography.learnButton,
     fontSize: "0.9rem",
     height: 45,
     width: 145,
   },
   servicesContainer: {
-    marginTop: "10rem",
+    margin: "10rem 0",
     padding: "0 4rem",
     [theme.breakpoints.down("sm")]: {
-      marginTop: "8rem",
+      margin: "8rem 0",
     },
     [theme.breakpoints.down("xs")]: {
       padding: "0 1.5rem",
-      marginTop: "6rem",
+      margin: "6rem 0",
     },
   },
   servicesItemContainer: {
@@ -86,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   serviceHeader: {
     marginBottom: "1rem",
   },
-  learnButtonServices: {
+  learnButtonSmall: {
     ...theme.typography.learnButton,
     fontSize: "0.9rem",
     height: 40,
@@ -107,7 +108,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   revolutionContainer: {
-    margin: "10rem 0",
     backgroundImage: `url(${revolutionBackground})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -116,22 +116,36 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     [theme.breakpoints.down("md")]: {
       height: "50rem",
-      margin: "8rem 0",
     },
     [theme.breakpoints.down("xs")]: {
       height: "40rem",
-      margin: "6rem 0",
     },
     width: "100%",
   },
   revolutionCard: {
     boxShadow: theme.shadows[10],
-    padding: "10rem",
+    padding: "8rem 10rem",
     [theme.breakpoints.down("md")]: {
       padding: "6rem 2rem",
     },
     [theme.breakpoints.down("xs")]: {
       padding: "3rem 0.5rem",
+    },
+  },
+  informationContainer: {
+    padding: "0 4rem",
+    height: "50rem",
+    backgroundImage: `url(${infoBackground})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      height: "40rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "30rem",
+      padding: "0 2rem",
     },
   },
 }));
@@ -140,6 +154,7 @@ const Home = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const defaultOptions = {
     loop: true,
@@ -172,7 +187,7 @@ const Home = () => {
               </Button>
             </Grid>
             <Grid item>
-              <Button variant="outlined" className={classes.learnButtonHero}>
+              <Button variant="outlined" className={classes.learnButtonBig}>
                 <span style={{ marginRight: 5 }}>Learn More</span>
                 <ButtonArrow
                   height={20}
@@ -217,7 +232,7 @@ const Home = () => {
               Complete digital solutions, from investigation to{" "}
               <span className={classes.specialText}>celebration</span>.
             </Typography>
-            <Button className={classes.learnButtonServices} variant="outlined">
+            <Button className={classes.learnButtonSmall} variant="outlined">
               <span style={{ marginRight: 5 }}>Learn More</span>
               <ButtonArrow
                 height={20}
@@ -256,7 +271,7 @@ const Home = () => {
               Integrate your Web experience or create a standalone app{" "}
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
-            <Button className={classes.learnButtonServices} variant="outlined">
+            <Button className={classes.learnButtonSmall} variant="outlined">
               <span style={{ marginRight: 5 }}>Learn More</span>
               <ButtonArrow
                 height={20}
@@ -289,7 +304,7 @@ const Home = () => {
             <Typography variant="subtitle1">
               Optimized for search engines, built for speed.
             </Typography>
-            <Button className={classes.learnButtonServices} variant="outlined">
+            <Button className={classes.learnButtonSmall} variant="outlined">
               <span style={{ marginRight: 5 }}>Learn More</span>
               <ButtonArrow
                 height={20}
@@ -325,13 +340,17 @@ const Home = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1" gutterBottom>
+                <Typography variant="subtitle1">
                   Visionary insights coupled with cutting-edge technology is a
                   recipe for revolution.
                 </Typography>
               </Grid>
               <Grid item>
-                <Button variant="outlined" className={classes.learnButtonHero}>
+                <Button
+                  variant="outlined"
+                  style={{ marginTop: "2rem" }}
+                  className={classes.learnButtonBig}
+                >
                   <span style={{ marginRight: 5 }}>Learn More</span>
                   <ButtonArrow
                     height={20}
@@ -343,6 +362,61 @@ const Home = () => {
             </Grid>
           </CardContent>
         </Card>
+      </Grid>
+
+      {/*----Information Block----*/}
+      <Grid
+        item
+        container
+        className={classes.informationContainer}
+        direction={matchesXS ? "column" : "row"}
+        alignItems="center"
+        justify={matchesXS ? "space-evenly" : "space-between"}
+      >
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h2" style={{ color: "white" }}>
+                About Us
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle2">Let's get personal</Typography>
+            </Grid>
+            <Grid item>
+              <Button
+                className={classes.learnButtonSmall}
+                variant="outlined"
+                style={{ borderColor: "white", color: "white" }}
+              >
+                <span style={{ marginRight: 5 }}>Learn More</span>
+                <ButtonArrow height={20} width={20} fill="white" />
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Grid container direction="column">
+            <Grid item>
+              <Typography variant="h2" style={{ color: "white" }}>
+                Contact Us
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle2">Say Hello! </Typography>
+            </Grid>
+            <Grid item>
+              <Button
+                className={classes.learnButtonSmall}
+                variant="outlined"
+                style={{ borderColor: "white", color: "white" }}
+              >
+                <span style={{ marginRight: 5 }}>Learn More</span>
+                <ButtonArrow height={20} width={20} fill="white" />
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

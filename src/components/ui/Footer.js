@@ -47,9 +47,6 @@ const useStyles = makeStyles((theme) => ({
       bottom: "0.5rem",
       right: "1rem",
     },
-    [theme.breakpoints.down("xs")]: {
-      bottom: 0,
-    },
   },
   icon: {
     color: "white",
