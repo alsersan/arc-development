@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.js": "/arc-development/static/js/main.5069d29e.chunk.js",
-    "main.js.map": "/arc-development/static/js/main.5069d29e.chunk.js.map",
+    "main.js": "/arc-development/static/js/main.0ed44632.chunk.js",
+    "main.js.map": "/arc-development/static/js/main.0ed44632.chunk.js.map",
     "runtime-main.js": "/arc-development/static/js/runtime-main.bd6f039d.js",
     "runtime-main.js.map": "/arc-development/static/js/runtime-main.bd6f039d.js.map",
-    "static/js/2.7b874633.chunk.js": "/arc-development/static/js/2.7b874633.chunk.js",
-    "static/js/2.7b874633.chunk.js.map": "/arc-development/static/js/2.7b874633.chunk.js.map",
+    "static/js/2.214a01ed.chunk.js": "/arc-development/static/js/2.214a01ed.chunk.js",
+    "static/js/2.214a01ed.chunk.js.map": "/arc-development/static/js/2.214a01ed.chunk.js.map",
     "index.html": "/arc-development/index.html",
-    "precache-manifest.55d239de49735f36d17e992f960bb8ef.js": "/arc-development/precache-manifest.55d239de49735f36d17e992f960bb8ef.js",
+    "precache-manifest.8cb36195ea1a8140f484d1e60ec3a2e8.js": "/arc-development/precache-manifest.8cb36195ea1a8140f484d1e60ec3a2e8.js",
     "service-worker.js": "/arc-development/service-worker.js",
-    "static/js/2.7b874633.chunk.js.LICENSE.txt": "/arc-development/static/js/2.7b874633.chunk.js.LICENSE.txt",
+    "static/js/2.214a01ed.chunk.js.LICENSE.txt": "/arc-development/static/js/2.214a01ed.chunk.js.LICENSE.txt",
     "static/media/Custom Software Icon.svg": "/arc-development/static/media/Custom Software Icon.350387f5.svg",
     "static/media/Footer Adornment.svg": "/arc-development/static/media/Footer Adornment.e227d87b.svg",
     "static/media/facebook.svg": "/arc-development/static/media/facebook.73caaa01.svg",
+    "static/media/infoBackground.svg": "/arc-development/static/media/infoBackground.e22079d9.svg",
     "static/media/instagram.svg": "/arc-development/static/media/instagram.0b117993.svg",
     "static/media/mobileIcon.svg": "/arc-development/static/media/mobileIcon.6838a9fb.svg",
     "static/media/repeatingBackground.svg": "/arc-development/static/media/repeatingBackground.c608f23f.svg",
@@ -21,7 +22,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.bd6f039d.js",
-    "static/js/2.7b874633.chunk.js",
-    "static/js/main.5069d29e.chunk.js"
+    "static/js/2.214a01ed.chunk.js",
+    "static/js/main.0ed44632.chunk.js"
   ]
 }

@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "380244e73bc8a5432be09415e1352926",
+    "revision": "9450665cc082e1fafa58b33afc82cdec",
     "url": "/arc-development/index.html"
   },
   {
-    "revision": "c3b52255a52258081904",
-    "url": "/arc-development/static/js/2.7b874633.chunk.js"
+    "revision": "ae6957150a06720d216a",
+    "url": "/arc-development/static/js/2.214a01ed.chunk.js"
   },
   {
     "revision": "14c54f8d621b663941f58f815237ec03",
-    "url": "/arc-development/static/js/2.7b874633.chunk.js.LICENSE.txt"
+    "url": "/arc-development/static/js/2.214a01ed.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "30e2f90678263810d21a",
-    "url": "/arc-development/static/js/main.5069d29e.chunk.js"
+    "revision": "66506bef8396522b4dc7",
+    "url": "/arc-development/static/js/main.0ed44632.chunk.js"
   },
   {
     "revision": "24ddae678c464ff103fe",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "73caaa01e4d700f4b23e47665ecc2727",
     "url": "/arc-development/static/media/facebook.73caaa01.svg"
+  },
+  {
+    "revision": "e22079d988bd34dee9239a6288b42e7d",
+    "url": "/arc-development/static/media/infoBackground.e22079d9.svg"
   },
   {
     "revision": "0b117993cfdc06f6a05973ffa37ab7dc",
