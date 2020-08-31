@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import ButtonArrow from "../ui/ButtonArrow";
+import LearnMoreButton from "../ui/LearnMoreButton";
 import background from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
 
@@ -71,14 +71,7 @@ const CallToAction = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button className={classes.learnButtonSmall} variant="outlined">
-              <span style={{ marginRight: 5 }}>Learn More</span>
-              <ButtonArrow
-                height={20}
-                width={20}
-                fill={theme.palette.primary.main}
-              />
-            </Button>
+            <LearnMoreButton color={theme.palette.primary.main} type="small" />
           </Grid>
         </Grid>
       </Grid>

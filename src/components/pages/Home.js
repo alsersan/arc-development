@@ -10,7 +10,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
 import animationData from "../../animations/landinganimation/data";
-import ButtonArrow from "../ui/ButtonArrow";
+import LearnMoreButton from "../ui/LearnMoreButton";
 import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
 import appDevelopmentIcon from "../../assets/mobileIcon.svg";
 import websiteIcon from "../../assets/websiteIcon.svg";
@@ -59,12 +59,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.light,
     },
   },
-  learnButtonBig: {
-    ...theme.typography.learnButton,
-    fontSize: "0.9rem",
-    height: 45,
-    width: 145,
-  },
   servicesContainer: {
     margin: "10rem 0",
     padding: "0 4rem",
@@ -87,12 +81,6 @@ const useStyles = makeStyles((theme) => ({
   },
   serviceHeader: {
     marginBottom: "1rem",
-  },
-  learnButtonSmall: {
-    ...theme.typography.learnButton,
-    fontSize: "0.9rem",
-    height: 40,
-    margin: "1rem 0",
   },
   specialText: {
     fontFamily: "Pacifico",
@@ -189,14 +177,7 @@ const Home = () => {
               </Button>
             </Grid>
             <Grid item>
-              <Button variant="outlined" className={classes.learnButtonBig}>
-                <span style={{ marginRight: 5 }}>Learn More</span>
-                <ButtonArrow
-                  height={20}
-                  width={20}
-                  fill={theme.palette.primary.main}
-                />
-              </Button>
+              <LearnMoreButton color={theme.palette.primary.main} type="big" />
             </Grid>
           </Grid>
         </Grid>
@@ -234,14 +215,7 @@ const Home = () => {
               Complete digital solutions, from investigation to{" "}
               <span className={classes.specialText}>celebration</span>.
             </Typography>
-            <Button className={classes.learnButtonSmall} variant="outlined">
-              <span style={{ marginRight: 5 }}>Learn More</span>
-              <ButtonArrow
-                height={20}
-                width={20}
-                fill={theme.palette.primary.main}
-              />
-            </Button>
+            <LearnMoreButton color={theme.palette.primary.main} type="small" />
           </Grid>
           <Grid item>
             <img
@@ -273,14 +247,7 @@ const Home = () => {
               Integrate your Web experience or create a standalone app{" "}
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
-            <Button className={classes.learnButtonSmall} variant="outlined">
-              <span style={{ marginRight: 5 }}>Learn More</span>
-              <ButtonArrow
-                height={20}
-                width={20}
-                fill={theme.palette.primary.main}
-              />
-            </Button>
+            <LearnMoreButton color={theme.palette.primary.main} type="small" />
           </Grid>
           <Grid item>
             <img
@@ -306,14 +273,7 @@ const Home = () => {
             <Typography variant="subtitle1">
               Optimized for search engines, built for speed.
             </Typography>
-            <Button className={classes.learnButtonSmall} variant="outlined">
-              <span style={{ marginRight: 5 }}>Learn More</span>
-              <ButtonArrow
-                height={20}
-                width={20}
-                fill={theme.palette.primary.main}
-              />
-            </Button>
+            <LearnMoreButton color={theme.palette.primary.main} type="small" />
           </Grid>
           <Grid item>
             <img
@@ -348,18 +308,11 @@ const Home = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Button
-                  variant="outlined"
+                <LearnMoreButton
+                  color={theme.palette.primary.main}
+                  type="big"
                   style={{ marginTop: "2rem" }}
-                  className={classes.learnButtonBig}
-                >
-                  <span style={{ marginRight: 5 }}>Learn More</span>
-                  <ButtonArrow
-                    height={20}
-                    width={20}
-                    fill={theme.palette.primary.main}
-                  />
-                </Button>
+                />
               </Grid>
             </Grid>
           </CardContent>
@@ -386,14 +339,7 @@ const Home = () => {
               <Typography variant="subtitle2">Let's get personal</Typography>
             </Grid>
             <Grid item>
-              <Button
-                className={classes.learnButtonSmall}
-                variant="outlined"
-                style={{ borderColor: "white", color: "white" }}
-              >
-                <span style={{ marginRight: 5 }}>Learn More</span>
-                <ButtonArrow height={20} width={20} fill="white" />
-              </Button>
+              <LearnMoreButton color="white" type="small" />
             </Grid>
           </Grid>
         </Grid>
@@ -408,14 +354,7 @@ const Home = () => {
               <Typography variant="subtitle2">Say Hello! </Typography>
             </Grid>
             <Grid item>
-              <Button
-                className={classes.learnButtonSmall}
-                variant="outlined"
-                style={{ borderColor: "white", color: "white" }}
-              >
-                <span style={{ marginRight: 5 }}>Learn More</span>
-                <ButtonArrow height={20} width={20} fill="white" />
-              </Button>
+              <LearnMoreButton color="white" type="small" />
             </Grid>
           </Grid>
         </Grid>

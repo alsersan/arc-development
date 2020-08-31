@@ -60,13 +60,11 @@ export default createMuiTheme({
       fontWeight: "300",
     },
     learnButton: {
-      borderWidth: 2,
       borderColor: arcBlue,
       color: arcBlue,
       fontFamily: "Roboto",
       fontWeight: "bold",
       textTransform: "none",
-      borderRadius: 50,
     },
   },
 });
