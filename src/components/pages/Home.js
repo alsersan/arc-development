@@ -16,6 +16,7 @@ import appDevelopmentIcon from "../../assets/mobileIcon.svg";
 import websiteIcon from "../../assets/websiteIcon.svg";
 import revolutionBackground from "../../assets/repeatingBackground.svg";
 import infoBackground from "../../assets/infoBackground.svg";
+import CallToAction from "../ui/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -418,6 +419,11 @@ const Home = () => {
             </Grid>
           </Grid>
         </Grid>
+      </Grid>
+
+      {/*----Call To Action----*/}
+      <Grid item>
+        <CallToAction />
       </Grid>
     </Grid>
   );
