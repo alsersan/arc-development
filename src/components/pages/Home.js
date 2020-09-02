@@ -1,16 +1,15 @@
 import React from "react";
 import Lottie from "react-lottie";
-import { Link } from "react-router-dom";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
 import animationData from "../../animations/landinganimation/data";
+import FreeEstimateButton from "../ui/FreeEstimateButton";
 import LearnMoreButton from "../ui/LearnMoreButton";
 import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
 import appDevelopmentIcon from "../../assets/mobileIcon.svg";
@@ -46,18 +45,11 @@ const useStyles = makeStyles((theme) => ({
   buttonContainer: {
     marginTop: "2rem",
   },
-  estimateButton: {
-    ...theme.typography.estimate,
-    borderRadius: 50,
-    height: 45,
+  heroEstimateButton: {
     width: 145,
     marginRight: "3rem",
     [theme.breakpoints.down("md")]: {
       marginRight: "1.5rem",
-    },
-    backgroundColor: theme.palette.secondary.main,
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.light,
     },
   },
   servicesContainer: {
@@ -173,14 +165,7 @@ const Home = () => {
           </Typography>
           <Grid container justify="center" className={classes.buttonContainer}>
             <Grid item>
-              <Button
-                variant="contained"
-                className={classes.estimateButton}
-                component={Link}
-                to="/estimate"
-              >
-                Free Estimate
-              </Button>
+              <FreeEstimateButton className={classes.heroEstimateButton} />
             </Grid>
             <Grid item>
               <LearnMoreButton

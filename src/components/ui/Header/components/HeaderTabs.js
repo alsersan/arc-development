@@ -8,6 +8,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 
+import FreeEstimateButton from "../../FreeEstimateButton";
+
 const menuOptions = [
   { name: "Services", link: "/services" },
   { name: "Custom Software Development", link: "/customsoftware" },
@@ -28,14 +30,8 @@ const useStyles = makeStyles((theme) => ({
   indicator: {
     height: 4,
   },
-  button: {
-    ...theme.typography.estimate,
-    borderRadius: "50px",
-    height: "45px",
+  estimateButton: {
     margin: "0 20px",
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.light,
-    },
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
@@ -107,16 +103,7 @@ const HeaderTabs = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
           />
         ))}
       </Tabs>
-      <Button
-        component={Link}
-        to="/estimate"
-        className={classes.button}
-        variant="contained"
-        color="secondary"
-        onClick={() => setRouteIndex(null)}
-      >
-        Free Estimate
-      </Button>
+      <FreeEstimateButton className={classes.estimateButton} />
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}

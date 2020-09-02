@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles/";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 
 import LearnMoreButton from "../ui/LearnMoreButton";
+import FreeEstimateButton from "../ui/FreeEstimateButton";
 import background from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
 
@@ -28,21 +27,8 @@ const useStyles = makeStyles((theme) => ({
       padding: "0 1rem",
     },
   },
-  learnButtonSmall: {
-    ...theme.typography.learnButton,
-    fontSize: "0.9rem",
-    height: 40,
-    margin: "1rem 0",
-  },
   estimateButton: {
-    ...theme.typography.estimate,
-    borderRadius: 50,
-    height: 45,
     width: 145,
-    backgroundColor: theme.palette.secondary.main,
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.light,
-    },
   },
 }));
 
@@ -81,14 +67,7 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Button
-          variant="contained"
-          className={classes.estimateButton}
-          component={Link}
-          to="/estimate"
-        >
-          Free Estimate
-        </Button>
+        <FreeEstimateButton className={classes.estimateButton} />
       </Grid>
     </Grid>
   );
