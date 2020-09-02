@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles/";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -71,12 +72,21 @@ const CallToAction = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <LearnMoreButton color={theme.palette.primary.main} type="small" />
+            <LearnMoreButton
+              color={theme.palette.primary.main}
+              type="small"
+              route="services"
+            />
           </Grid>
         </Grid>
       </Grid>
       <Grid item>
-        <Button variant="contained" className={classes.estimateButton}>
+        <Button
+          variant="contained"
+          className={classes.estimateButton}
+          component={Link}
+          to="/estimate"
+        >
           Free Estimate
         </Button>
       </Grid>

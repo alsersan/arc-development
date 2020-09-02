@@ -1,5 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
+import { Link } from "react-router-dom";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -172,12 +173,21 @@ const Home = () => {
           </Typography>
           <Grid container justify="center" className={classes.buttonContainer}>
             <Grid item>
-              <Button variant="contained" className={classes.estimateButton}>
+              <Button
+                variant="contained"
+                className={classes.estimateButton}
+                component={Link}
+                to="/estimate"
+              >
                 Free Estimate
               </Button>
             </Grid>
             <Grid item>
-              <LearnMoreButton color={theme.palette.primary.main} type="big" />
+              <LearnMoreButton
+                color={theme.palette.primary.main}
+                type="big"
+                route="/services"
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -215,7 +225,11 @@ const Home = () => {
               Complete digital solutions, from investigation to{" "}
               <span className={classes.specialText}>celebration</span>.
             </Typography>
-            <LearnMoreButton color={theme.palette.primary.main} type="small" />
+            <LearnMoreButton
+              color={theme.palette.primary.main}
+              type="small"
+              route="/customsoftware"
+            />
           </Grid>
           <Grid item>
             <img
@@ -247,7 +261,11 @@ const Home = () => {
               Integrate your Web experience or create a standalone app{" "}
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
-            <LearnMoreButton color={theme.palette.primary.main} type="small" />
+            <LearnMoreButton
+              color={theme.palette.primary.main}
+              type="small"
+              route="/mobileapps"
+            />
           </Grid>
           <Grid item>
             <img
@@ -273,7 +291,11 @@ const Home = () => {
             <Typography variant="subtitle1">
               Optimized for search engines, built for speed.
             </Typography>
-            <LearnMoreButton color={theme.palette.primary.main} type="small" />
+            <LearnMoreButton
+              color={theme.palette.primary.main}
+              type="small"
+              route="websites"
+            />
           </Grid>
           <Grid item>
             <img
@@ -312,6 +334,7 @@ const Home = () => {
                   color={theme.palette.primary.main}
                   type="big"
                   style={{ marginTop: "2rem" }}
+                  route="revolution"
                 />
               </Grid>
             </Grid>
@@ -339,7 +362,7 @@ const Home = () => {
               <Typography variant="subtitle2">Let's get personal</Typography>
             </Grid>
             <Grid item>
-              <LearnMoreButton color="white" type="small" />
+              <LearnMoreButton color="white" type="small" route="about" />
             </Grid>
           </Grid>
         </Grid>
@@ -354,7 +377,7 @@ const Home = () => {
               <Typography variant="subtitle2">Say Hello! </Typography>
             </Grid>
             <Grid item>
-              <LearnMoreButton color="white" type="small" />
+              <LearnMoreButton color="white" type="small" route="contact" />
             </Grid>
           </Grid>
         </Grid>

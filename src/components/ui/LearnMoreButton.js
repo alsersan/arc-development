@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LearnMoreButton = ({ type, color, style }) => {
+const LearnMoreButton = ({ type, color, style, route }) => {
   const classes = useStyles();
   const className = type === "small" ? classes.small : classes.big;
 
@@ -33,6 +34,8 @@ const LearnMoreButton = ({ type, color, style }) => {
       className={className}
       style={{ ...style, color: color, borderColor: color }}
       variant="outlined"
+      component={Link}
+      to={route}
     >
       <span style={{ marginRight: 5 }}>Learn More</span>
       <ButtonArrow height={20} width={20} fill={color} />
