@@ -7,8 +7,8 @@ const SelectedTabProvider = ({ children }) => {
   const [menuIndex, setMenuIndex] = useState(0);
 
   useEffect(() => {
-    console.log(window.location.pathname);
-    switch (window.location.pathname) {
+    console.log(window.location.hash.substring(1));
+    switch (window.location.hash.substring(1)) {
       case "/":
         setTabIndex(0);
         break;
@@ -53,7 +53,6 @@ const SelectedTabProvider = ({ children }) => {
     >
       {children}
       {console.log(`tabIndexContext: ${tabIndex}`)}
-
       {console.log(`menuIndexContext: ${menuIndex}`)}
     </SelectedTabContext.Provider>
   );
