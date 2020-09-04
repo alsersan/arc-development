@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
   indicator: {
     height: 4,
+    transitionDuration: 200,
+    transitionTimingFunction: "ease",
   },
 
   estimateButton: {
