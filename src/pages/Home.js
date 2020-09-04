@@ -8,16 +8,16 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-import animationData from "../../animations/landinganimation/data";
-import FreeEstimateButton from "../ui/FreeEstimateButton";
-import LearnMoreButton from "../ui/LearnMoreButton";
-import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
-import appDevelopmentIcon from "../../assets/mobileIcon.svg";
-import websiteIcon from "../../assets/websiteIcon.svg";
-import revolutionBackground from "../../assets/repeatingBackground.svg";
-import infoBackground from "../../assets/infoBackground.svg";
-import CallToAction from "../ui/CallToAction";
-import { useTabContext } from "../../contexts/selectedTabContext";
+import animationData from "../animations/landinganimation/data";
+import FreeEstimateButton from "../components/ui/FreeEstimateButton";
+import LearnMoreButton from "../components/ui/LearnMoreButton";
+import customSoftwareIcon from "../assets/Custom Software Icon.svg";
+import appDevelopmentIcon from "../assets/mobileIcon.svg";
+import websiteIcon from "../assets/websiteIcon.svg";
+import revolutionBackground from "../assets/repeatingBackground.svg";
+import infoBackground from "../assets/infoBackground.svg";
+import CallToAction from "../components/ui/CallToAction";
+import { useTabContext } from "../contexts/selectedTabContext";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
