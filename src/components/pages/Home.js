@@ -17,6 +17,7 @@ import websiteIcon from "../../assets/websiteIcon.svg";
 import revolutionBackground from "../../assets/repeatingBackground.svg";
 import infoBackground from "../../assets/infoBackground.svg";
 import CallToAction from "../ui/CallToAction";
+import { useTabContext } from "../../contexts/selectedTabContext";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -139,6 +140,8 @@ const Home = () => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
+  const { setTabIndex, setMenuIndex } = useTabContext();
+
   const defaultOptions = {
     loop: true,
     autoplay: false,
@@ -169,9 +172,10 @@ const Home = () => {
             </Grid>
             <Grid item>
               <LearnMoreButton
+                onClick={() => setTabIndex(2)}
                 color={theme.palette.primary.main}
                 type="big"
-                route="/services"
+                route="/revolution"
               />
             </Grid>
           </Grid>
@@ -211,6 +215,10 @@ const Home = () => {
               <span className={classes.specialText}>celebration</span>.
             </Typography>
             <LearnMoreButton
+              onClick={() => {
+                setTabIndex(1);
+                setMenuIndex(1);
+              }}
               color={theme.palette.primary.main}
               type="small"
               route="/customsoftware"
@@ -247,6 +255,10 @@ const Home = () => {
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
             <LearnMoreButton
+              onClick={() => {
+                setTabIndex(1);
+                setMenuIndex(2);
+              }}
               color={theme.palette.primary.main}
               type="small"
               route="/mobileapps"
@@ -277,6 +289,10 @@ const Home = () => {
               Optimized for search engines, built for speed.
             </Typography>
             <LearnMoreButton
+              onClick={() => {
+                setTabIndex(1);
+                setMenuIndex(3);
+              }}
               color={theme.palette.primary.main}
               type="small"
               route="websites"
@@ -316,6 +332,7 @@ const Home = () => {
               </Grid>
               <Grid item>
                 <LearnMoreButton
+                  onClick={() => setTabIndex(2)}
                   color={theme.palette.primary.main}
                   type="big"
                   style={{ marginTop: "2rem" }}
@@ -347,7 +364,12 @@ const Home = () => {
               <Typography variant="subtitle2">Let's get personal</Typography>
             </Grid>
             <Grid item>
-              <LearnMoreButton color="white" type="small" route="about" />
+              <LearnMoreButton
+                onClick={() => setTabIndex(3)}
+                color="white"
+                type="small"
+                route="about"
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -362,7 +384,12 @@ const Home = () => {
               <Typography variant="subtitle2">Say Hello! </Typography>
             </Grid>
             <Grid item>
-              <LearnMoreButton color="white" type="small" route="contact" />
+              <LearnMoreButton
+                onClick={() => setTabIndex(4)}
+                color="white"
+                type="small"
+                route="contact"
+              />
             </Grid>
           </Grid>
         </Grid>

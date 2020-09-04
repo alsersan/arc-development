@@ -39,7 +39,7 @@ const SelectedTabProvider = ({ children }) => {
         setTabIndex(4);
         break;
       case "/estimate":
-        setTabIndex(null);
+        setTabIndex(5);
         break;
       default:
         console.log("DEFAULT");

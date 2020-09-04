@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
   indicator: {
     height: 4,
   },
+
   estimateButton: {
-    margin: "0 20px",
+    margin: "1.15rem 20px",
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
@@ -104,8 +105,10 @@ const HeaderTabs = () => {
             onMouseOver={tab.onMouseOver}
           />
         ))}
+
+        <FreeEstimateButton className={classes.estimateButton} />
       </Tabs>
-      <FreeEstimateButton className={classes.estimateButton} />
+
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}

@@ -30,7 +30,7 @@ const FreeEstimateButton = ({ style, className }) => {
       variant="contained"
       component={Link}
       to="/estimate"
-      onClick={() => setTabIndex(null)}
+      onClick={() => setTabIndex(5)}
     >
       Free Estimate
     </Button>

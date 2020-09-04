@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LearnMoreButton = ({ type, color, style, route }) => {
+const LearnMoreButton = ({ type, color, style, route, onClick }) => {
   const classes = useStyles();
   const className = type === "small" ? classes.small : classes.big;
 
@@ -36,6 +36,7 @@ const LearnMoreButton = ({ type, color, style, route }) => {
       variant="outlined"
       component={Link}
       to={route}
+      onClick={onClick}
     >
       <span style={{ marginRight: 5 }}>Learn More</span>
       <ButtonArrow height={20} width={20} fill={color} />
