@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -12,6 +12,7 @@ import { useTheme } from "@material-ui/core/styles";
 import SideDrawerMenu from "./components/SideDrawerMenu";
 import HeaderTabs from "./components/HeaderTabs";
 import CompanyLogo from "./components/CompanyLogo";
+import { useTabContext } from "../../../contexts/selectedTabContext";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -58,53 +59,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
+const Header = () => {
+  const { tabIndex, setTabIndex } = useTabContext();
+
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-  useEffect(() => {
-    switch (window.location.pathname) {
-      case "/":
-        setRouteIndex(0);
-        break;
-      case "/services":
-        setRouteIndex(1);
-        setMenuIndex(0);
-        break;
-      case "/customsoftware":
-        setRouteIndex(1);
-        setMenuIndex(1);
-        break;
-      case "/mobileapps":
-        setRouteIndex(1);
-        setMenuIndex(2);
-        break;
-      case "/websites":
-        setRouteIndex(1);
-        setMenuIndex(3);
-        break;
-      case "/revolution":
-        setRouteIndex(2);
-        break;
-      case "/about":
-        setRouteIndex(3);
-        break;
-      case "/contact":
-        setRouteIndex(4);
-        break;
-      case "/estimate":
-        setRouteIndex(null);
-        break;
-      default:
-        break;
-    }
-  }, []);
-
   return (
     <React.Fragment>
       {console.log("renderHeader")}
-      {console.log("routeIndex: " + routeIndex)}
+      {console.log("tabIndex: " + tabIndex)}
       <ElevationScroll>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
           <Toolbar disableGutters>
@@ -113,23 +78,14 @@ const Header = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
               component={Link}
               to="/"
               className={classes.logoContainer}
-              onClick={() => setRouteIndex(0)}
+              onClick={() => setTabIndex(0)}
             >
               <CompanyLogo className={classes.logo} />
             </Button>
             {matches ? (
-              <SideDrawerMenu
-                routeIndex={routeIndex}
-                setRouteIndex={setRouteIndex}
-                marginClassName={classes.toolbarMargin}
-              />
+              <SideDrawerMenu marginClassName={classes.toolbarMargin} />
             ) : (
-              <HeaderTabs
-                routeIndex={routeIndex}
-                setRouteIndex={setRouteIndex}
-                menuIndex={menuIndex}
-                setMenuIndex={setMenuIndex}
-              />
+              <HeaderTabs />
             )}
           </Toolbar>
         </AppBar>

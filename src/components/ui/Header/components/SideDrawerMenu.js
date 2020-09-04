@@ -9,6 +9,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
+import { useTabContext } from "../../../../contexts/selectedTabContext";
+
 const drawerOptions = [
   { name: "Home", link: "/" },
   { name: "Services", link: "/services" },
@@ -58,11 +60,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SideDrawerMenu = ({ routeIndex, setRouteIndex, marginClassName }) => {
+const SideDrawerMenu = ({ marginClassName }) => {
   const classes = useStyles();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { tabIndex, setTabIndex } = useTabContext();
 
   return (
     <React.Fragment>
@@ -95,10 +98,10 @@ const SideDrawerMenu = ({ routeIndex, setRouteIndex, marginClassName }) => {
               to={option.link}
               onClick={() => {
                 setOpenDrawer(false);
-                setRouteIndex(index);
+                setTabIndex(index);
               }}
               classes={{ selected: classes.drawerItemSelected }}
-              selected={routeIndex === index}
+              selected={tabIndex === index}
             >
               <ListItemText className={classes.drawerItem} disableTypography>
                 {option.name}
@@ -113,13 +116,13 @@ const SideDrawerMenu = ({ routeIndex, setRouteIndex, marginClassName }) => {
             to="/estimate"
             onClick={() => {
               setOpenDrawer(false);
-              setRouteIndex(null);
+              setTabIndex(null);
             }}
             classes={{
               root: classes.drawerItemEstimate,
               selected: classes.drawerItemEstimateSelected,
             }}
-            selected={routeIndex === null}
+            selected={tabIndex === null}
           >
             <ListItemText className={classes.drawerItem} disableTypography>
               Free Estimate

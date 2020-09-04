@@ -6,9 +6,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import Button from "@material-ui/core/Button";
 
 import FreeEstimateButton from "../../FreeEstimateButton";
+import { useTabContext } from "../../../../contexts/selectedTabContext";
 
 const menuOptions = [
   { name: "Services", link: "/services" },
@@ -45,7 +45,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const HeaderTabs = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
+const HeaderTabs = () => {
+  const { tabIndex, setTabIndex, menuIndex, setMenuIndex } = useTabContext();
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
@@ -59,7 +61,7 @@ const HeaderTabs = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
     setAnchorEl(null);
     setOpenMenu(false);
     setMenuIndex(index);
-    setRouteIndex(1);
+    setTabIndex(1);
   };
 
   const handleMenuClose = () => {
@@ -86,8 +88,8 @@ const HeaderTabs = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
       <Tabs
         className={classes.tabContainer}
         classes={{ indicator: classes.indicator }}
-        value={routeIndex}
-        onChange={(e, newIndex) => setRouteIndex(newIndex)}
+        value={tabIndex}
+        onChange={(e, newIndex) => setTabIndex(newIndex)}
       >
         {routes.map((tab) => (
           <Tab
@@ -122,7 +124,7 @@ const HeaderTabs = ({ routeIndex, setRouteIndex, menuIndex, setMenuIndex }) => {
             onClick={(e) => handleMenuitemClick(e, index)}
             component={Link}
             to={option.link}
-            selected={index === menuIndex && routeIndex === 1}
+            selected={index === menuIndex && tabIndex === 1}
             classes={{ root: classes.menuItem }}
           >
             {option.name}
