@@ -7,6 +7,7 @@ import Header from "./ui/Header";
 import Home from "../pages/Home";
 import Services from "../pages/Services";
 import Footer from "./ui/Footer";
+import CustomSoftware from "../pages/CustomSoftware";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 
 const App = () => {
@@ -26,11 +27,7 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/services" component={Services} />
-              <Route
-                exact
-                path="/customsoftware"
-                component={() => <div>Custom Software</div>}
-              />
+              <Route exact path="/customsoftware" component={CustomSoftware} />
               <Route
                 exact
                 path="/mobileapps"
