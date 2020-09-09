@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0044c32d9bd590abddb069b199291b28",
+    "revision": "3d364761e048e7b0b961bfd3f95f0adf",
     "url": "/arc-development/index.html"
   },
   {
-    "revision": "c6426f1f67d9afebe9fa",
-    "url": "/arc-development/static/js/2.f5cac920.chunk.js"
+    "revision": "77e87c37b7bed6e27972",
+    "url": "/arc-development/static/js/2.58b12c05.chunk.js"
   },
   {
     "revision": "14c54f8d621b663941f58f815237ec03",
-    "url": "/arc-development/static/js/2.f5cac920.chunk.js.LICENSE.txt"
+    "url": "/arc-development/static/js/2.58b12c05.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3e9f331604a79919aa41",
-    "url": "/arc-development/static/js/main.674f77ce.chunk.js"
+    "revision": "78bef4ef4b084af9ae06",
+    "url": "/arc-development/static/js/main.344c35f1.chunk.js"
   },
   {
     "revision": "24ddae678c464ff103fe",
@@ -28,12 +28,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arc-development/static/media/Footer Adornment.e227d87b.svg"
   },
   {
+    "revision": "7f1d7c61383b716ea9211893113df9ab",
+    "url": "/arc-development/static/media/backArrow.7f1d7c61.svg"
+  },
+  {
     "revision": "1894f630aea694275d0476166f03b826",
     "url": "/arc-development/static/media/background.1894f630.jpg"
   },
   {
+    "revision": "0c8991bc318b34e9ff8d78dba3833446",
+    "url": "/arc-development/static/media/bulb.0c8991bc.svg"
+  },
+  {
+    "revision": "c5e21215338e61508c27fcbee99855a9",
+    "url": "/arc-development/static/media/cash.c5e21215.svg"
+  },
+  {
     "revision": "73caaa01e4d700f4b23e47665ecc2727",
     "url": "/arc-development/static/media/facebook.73caaa01.svg"
+  },
+  {
+    "revision": "0e398eb119a57a47b3bf32be5c385de1",
+    "url": "/arc-development/static/media/forwardArrow.0e398eb1.svg"
+  },
+  {
+    "revision": "3da1796662364aee80073a24c121ff51",
+    "url": "/arc-development/static/media/img_0.3da17966.png"
+  },
+  {
+    "revision": "a006de5a23bfb510cd736709ac744d75",
+    "url": "/arc-development/static/media/img_1.a006de5a.png"
   },
   {
     "revision": "e22079d988bd34dee9239a6288b42e7d",
@@ -54,6 +78,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c608f23f6d6a6d579e2138bd77b6d054",
     "url": "/arc-development/static/media/repeatingBackground.c608f23f.svg"
+  },
+  {
+    "revision": "3ad96c4bf1627df7cefd64aa7efa5843",
+    "url": "/arc-development/static/media/root.3ad96c4b.svg"
+  },
+  {
+    "revision": "9ce632eb2f76db1534b07869a48b59fc",
+    "url": "/arc-development/static/media/stopwatch.9ce632eb.svg"
   },
   {
     "revision": "435fc4bc44c1e90d5f00f4efccdb9b1d",

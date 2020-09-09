@@ -1,30 +1,38 @@
 {
   "files": {
-    "main.js": "/arc-development/static/js/main.674f77ce.chunk.js",
-    "main.js.map": "/arc-development/static/js/main.674f77ce.chunk.js.map",
+    "main.js": "/arc-development/static/js/main.344c35f1.chunk.js",
+    "main.js.map": "/arc-development/static/js/main.344c35f1.chunk.js.map",
     "runtime-main.js": "/arc-development/static/js/runtime-main.bd6f039d.js",
     "runtime-main.js.map": "/arc-development/static/js/runtime-main.bd6f039d.js.map",
-    "static/js/2.f5cac920.chunk.js": "/arc-development/static/js/2.f5cac920.chunk.js",
-    "static/js/2.f5cac920.chunk.js.map": "/arc-development/static/js/2.f5cac920.chunk.js.map",
+    "static/js/2.58b12c05.chunk.js": "/arc-development/static/js/2.58b12c05.chunk.js",
+    "static/js/2.58b12c05.chunk.js.map": "/arc-development/static/js/2.58b12c05.chunk.js.map",
     "index.html": "/arc-development/index.html",
-    "precache-manifest.16f3c0a2401f62e9f248c951cb726a6e.js": "/arc-development/precache-manifest.16f3c0a2401f62e9f248c951cb726a6e.js",
+    "precache-manifest.1718e914bd1d834719f9a60904f2c8b9.js": "/arc-development/precache-manifest.1718e914bd1d834719f9a60904f2c8b9.js",
     "service-worker.js": "/arc-development/service-worker.js",
-    "static/js/2.f5cac920.chunk.js.LICENSE.txt": "/arc-development/static/js/2.f5cac920.chunk.js.LICENSE.txt",
+    "static/js/2.58b12c05.chunk.js.LICENSE.txt": "/arc-development/static/js/2.58b12c05.chunk.js.LICENSE.txt",
     "static/media/Custom Software Icon.svg": "/arc-development/static/media/Custom Software Icon.350387f5.svg",
     "static/media/Footer Adornment.svg": "/arc-development/static/media/Footer Adornment.e227d87b.svg",
+    "static/media/backArrow.svg": "/arc-development/static/media/backArrow.7f1d7c61.svg",
     "static/media/background.jpg": "/arc-development/static/media/background.1894f630.jpg",
+    "static/media/bulb.svg": "/arc-development/static/media/bulb.0c8991bc.svg",
+    "static/media/cash.svg": "/arc-development/static/media/cash.c5e21215.svg",
     "static/media/facebook.svg": "/arc-development/static/media/facebook.73caaa01.svg",
+    "static/media/forwardArrow.svg": "/arc-development/static/media/forwardArrow.0e398eb1.svg",
+    "static/media/img_0.png": "/arc-development/static/media/img_0.3da17966.png",
+    "static/media/img_1.png": "/arc-development/static/media/img_1.a006de5a.png",
     "static/media/infoBackground.svg": "/arc-development/static/media/infoBackground.e22079d9.svg",
     "static/media/instagram.svg": "/arc-development/static/media/instagram.0b117993.svg",
     "static/media/mobileBackground.jpg": "/arc-development/static/media/mobileBackground.eb953523.jpg",
     "static/media/mobileIcon.svg": "/arc-development/static/media/mobileIcon.6838a9fb.svg",
     "static/media/repeatingBackground.svg": "/arc-development/static/media/repeatingBackground.c608f23f.svg",
+    "static/media/root.svg": "/arc-development/static/media/root.3ad96c4b.svg",
+    "static/media/stopwatch.svg": "/arc-development/static/media/stopwatch.9ce632eb.svg",
     "static/media/twitter.svg": "/arc-development/static/media/twitter.435fc4bc.svg",
     "static/media/websiteIcon.svg": "/arc-development/static/media/websiteIcon.6b90d7dc.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.bd6f039d.js",
-    "static/js/2.f5cac920.chunk.js",
-    "static/js/main.674f77ce.chunk.js"
+    "static/js/2.58b12c05.chunk.js",
+    "static/js/main.344c35f1.chunk.js"
   ]
 }
