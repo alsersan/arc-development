@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawerItemEstimateSelected: {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: `${theme.palette.secondary.dark} !important`,
     "& .MuiListItemText-root": {
       opacity: "1",
     },
@@ -116,13 +116,13 @@ const SideDrawerMenu = ({ marginClassName }) => {
             to="/estimate"
             onClick={() => {
               setOpenDrawer(false);
-              setTabIndex(null);
+              setTabIndex(5);
             }}
             classes={{
               root: classes.drawerItemEstimate,
               selected: classes.drawerItemEstimateSelected,
             }}
-            selected={tabIndex === null}
+            selected={tabIndex === 5}
           >
             <ListItemText className={classes.drawerItem} disableTypography>
               Free Estimate

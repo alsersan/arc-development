@@ -9,6 +9,7 @@ import LearnMoreButton from "../ui/LearnMoreButton";
 import FreeEstimateButton from "../ui/FreeEstimateButton";
 import background from "../../assets/background.jpg";
 import mobileBackground from "../../assets/mobileBackground.jpg";
+import { useTabContext } from "../../contexts/selectedTabContext";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -37,6 +38,8 @@ const CallToAction = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const { setTabIndex } = useTabContext();
+
   return (
     <Grid
       container
@@ -62,6 +65,7 @@ const CallToAction = () => {
               color={theme.palette.primary.main}
               type="small"
               route="services"
+              onClick={() => setTabIndex(1)}
             />
           </Grid>
         </Grid>
