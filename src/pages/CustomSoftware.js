@@ -24,15 +24,34 @@ import uxAnimation from "../animations/uxAnimation/data";
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     padding: "4rem 4rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: "3rem 2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: "2rem 1rem",
+    },
   },
   heading: {
     maxWidth: "40rem",
     margin: "0 3rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 1rem",
+    },
   },
   iconContainer: {
     margin: "7rem 0",
+    [theme.breakpoints.down("md")]: {
+      margin: "6rem 0",
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "4rem 0",
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "3rem 0",
+    },
   },
   iconWrapper: {
+    height: "100%",
     maxWidth: "22rem",
     [theme.breakpoints.down("md")]: {
       maxWidth: "16rem",
@@ -54,16 +73,29 @@ const useStyles = makeStyles((theme) => ({
   },
   animationMarginLeft: {
     marginLeft: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
   },
   animationMarginRight: {
     marginRight: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
   },
   sectionContainer: {
     margin: "4rem 0",
+    [theme.breakpoints.down("md")]: {
+      margin: "3rem 0",
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "2rem 0",
+    },
   },
   rootTextContainer: {
     maxWidth: "25rem",
     textAlign: "center",
+    marginTop: "1rem",
   },
 }));
 
@@ -71,6 +103,7 @@ const CustomSoftware = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { setMenuIndex } = useTabContext();
 
@@ -109,6 +142,25 @@ const CustomSoftware = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  const lottieScale = (
+    <Grid
+      item
+      className={`${classes.animation} ${classes.animationMarginRight}`}
+    >
+      <Lottie options={scaleOptions} />
+    </Grid>
+  );
+
+  const lottieUX = (
+    <Grid
+      item
+      className={`${classes.animation} ${classes.animationMarginRight}`}
+      style={{ maxWidth: "8rem" }}
+    >
+      <Lottie options={uxOptions} />
+    </Grid>
+  );
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -175,7 +227,14 @@ const CustomSoftware = () => {
       </Grid>
 
       {/*--Icons--*/}
-      <Grid item container justify="center" className={classes.iconContainer}>
+      <Grid
+        item
+        container
+        justify="center"
+        alignItems="center"
+        direction={matchesSM ? "column" : "row"}
+        className={classes.iconContainer}
+      >
         <Grid
           item
           container
@@ -198,6 +257,7 @@ const CustomSoftware = () => {
           direction="column"
           alignItems="center"
           className={classes.iconWrapper}
+          style={{ margin: matchesSM ? "2rem 0" : undefined }}
         >
           <Grid item>
             <Typography variant="h4" gutterBottom>
@@ -238,6 +298,7 @@ const CustomSoftware = () => {
         <Grid item style={{ marginBottom: matchesMD ? "4rem" : 0 }}>
           <Grid
             container
+            direction={matchesSM ? "column" : "row"}
             alignItems="center"
             className={classes.animationContainer}
           >
@@ -270,15 +331,12 @@ const CustomSoftware = () => {
         <Grid item>
           <Grid
             container
+            direction={matchesSM ? "column" : "row"}
             alignItems="center"
             className={classes.animationContainer}
           >
-            <Grid
-              item
-              className={`${classes.animation} ${classes.animationMarginRight}`}
-            >
-              <Lottie options={scaleOptions} />
-            </Grid>
+            {matchesSM ? null : lottieScale}
+
             <Grid item className={classes.textContainer}>
               <Typography variant="h4" paragraph>
                 Scale
@@ -289,6 +347,7 @@ const CustomSoftware = () => {
                 and reliabiilty.
               </Typography>
             </Grid>
+            {matchesSM ? lottieScale : null}
           </Grid>
         </Grid>
       </Grid>
@@ -305,8 +364,8 @@ const CustomSoftware = () => {
           <img
             src={root}
             alt="tree with roots extending out"
-            height="400rem"
-            width="400rem"
+            height={matchesSM ? "300rem" : "400rem"}
+            width={matchesSM ? "300rem" : "400rem"}
           />
         </Grid>
         <Grid item className={classes.rootTextContainer}>
@@ -336,6 +395,7 @@ const CustomSoftware = () => {
         <Grid item style={{ marginBottom: matchesMD ? "4rem" : 0 }}>
           <Grid
             container
+            direction={matchesSM ? "column" : "row"}
             alignItems="center"
             className={classes.animationContainer}
           >
@@ -366,16 +426,12 @@ const CustomSoftware = () => {
         <Grid item>
           <Grid
             container
+            direction={matchesSM ? "column" : "row"}
             alignItems="center"
             className={classes.animationContainer}
           >
-            <Grid
-              item
-              className={`${classes.animation} ${classes.animationMarginRight}`}
-              style={{ maxWidth: "8rem" }}
-            >
-              <Lottie options={uxOptions} />
-            </Grid>
+            {matchesSM ? null : lottieUX}
+
             <Grid item className={classes.textContainer}>
               <Typography variant="h4" paragraph>
                 UserExperience Design
@@ -393,6 +449,7 @@ const CustomSoftware = () => {
                 that solve problems rather than create new ones.
               </Typography>
             </Grid>
+            {matchesSM ? lottieUX : null}
           </Grid>
         </Grid>
       </Grid>
