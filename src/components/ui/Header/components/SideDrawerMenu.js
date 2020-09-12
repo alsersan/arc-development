@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,6 +10,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import { useTabContext } from "../../../../contexts/selectedTabContext";
+import { useDrawerContext } from "../../../../contexts/openDrawerContext";
 
 const drawerOptions = [
   { name: "Home", link: "/" },
@@ -64,7 +65,7 @@ const SideDrawerMenu = ({ marginClassName }) => {
   const classes = useStyles();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const { openDrawer, setOpenDrawer } = useDrawerContext();
   const { tabIndex, setTabIndex } = useTabContext();
 
   return (

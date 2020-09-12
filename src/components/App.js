@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import theme from "./ui/Theme";
@@ -9,21 +9,17 @@ import Services from "../pages/Services";
 import Footer from "./ui/Footer";
 import CustomSoftware from "../pages/CustomSoftware";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
+import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
 const App = () => {
-  const [routeIndex, setRouteIndex] = useState(0);
-  const [menuIndex, setMenuIndex] = useState(0);
   return (
     <div>
       <ThemeProvider theme={theme}>
         <HashRouter basename="/">
           <SelectedTabProvider>
-            <Header
-              routeIndex={routeIndex}
-              setRouteIndex={setRouteIndex}
-              menuIndex={menuIndex}
-              setMenuIndex={setMenuIndex}
-            />
+            <OpenDrawerProvider>
+              <Header />
+            </OpenDrawerProvider>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/services" component={Services} />

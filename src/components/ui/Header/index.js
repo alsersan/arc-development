@@ -13,8 +13,11 @@ import SideDrawerMenu from "./components/SideDrawerMenu";
 import HeaderTabs from "./components/HeaderTabs";
 import CompanyLogo from "./components/CompanyLogo";
 import { useTabContext } from "../../../contexts/selectedTabContext";
+import { useDrawerContext } from "../../../contexts/openDrawerContext";
 
 function ElevationScroll(props) {
+  const { openDrawer } = useDrawerContext();
+
   const { children } = props;
 
   const trigger = useScrollTrigger({
@@ -23,7 +26,7 @@ function ElevationScroll(props) {
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
+    elevation: trigger && !openDrawer ? 4 : 0,
   });
 }
 

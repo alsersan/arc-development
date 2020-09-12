@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "40rem",
     margin: "0 3rem",
     [theme.breakpoints.down("sm")]: {
-      margin: "0 1rem",
+      margin: 0,
     },
   },
   iconContainer: {
