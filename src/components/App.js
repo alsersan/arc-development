@@ -4,10 +4,11 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import theme from "./ui/Theme";
 
 import Header from "./ui/Header";
+import Footer from "./ui/Footer";
 import Home from "../pages/Home";
 import Services from "../pages/Services";
-import Footer from "./ui/Footer";
 import CustomSoftware from "../pages/CustomSoftware";
+import MobileApp from "../pages/MobileApp";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
@@ -24,11 +25,7 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/services" component={Services} />
               <Route exact path="/customsoftware" component={CustomSoftware} />
-              <Route
-                exact
-                path="/mobileapps"
-                component={() => <div>Mobile App</div>}
-              />
+              <Route exact path="/mobileapps" component={MobileApp} />
               <Route
                 exact
                 path="/websites"
