@@ -188,41 +188,31 @@ const CustomSoftware = () => {
               </IconButton>
             </Grid>
           </Hidden>
-          <Grid item container direction="column" className={classes.heading}>
-            <Grid item>
-              <Typography variant="h2" paragraph>
-                Custom Software Development
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                Wether we're replacing old software or inventing new solutions,
-                Arc Development is here to help your business tackle technology.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                Using regular commercial software leaves you with a lot of stuff
-                you don't need, without some of the stuff you do need, and
-                ultimately controls the way you work. Without using any software
-                at all you risk falling behind competitors and missing out on
-                huge savings from increased efficiency.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                Our custom solutions are designed from the ground up with your
-                needs, wants and goals at the core. This collaborative process
-                produces finely tuned software that is much more effective at
-                improving your workflow and reducing costs than generalized
-                options.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                We create exactly what you want, exactly how you want it.
-              </Typography>
-            </Grid>
+          <Grid item className={classes.heading}>
+            <Typography variant="h2" paragraph>
+              Custom Software Development
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Wether we're replacing old software or inventing new solutions,
+              Arc Development is here to help your business tackle technology.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Using regular commercial software leaves you with a lot of stuff
+              you don't need, without some of the stuff you do need, and
+              ultimately controls the way you work. Without using any software
+              at all you risk falling behind competitors and missing out on huge
+              savings from increased efficiency.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Our custom solutions are designed from the ground up with your
+              needs, wants and goals at the core. This collaborative process
+              produces finely tuned software that is much more effective at
+              improving your workflow and reducing costs than generalized
+              options.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              We create exactly what you want, exactly how you want it.
+            </Typography>
           </Grid>
           <Hidden mdDown>
             <Grid item>

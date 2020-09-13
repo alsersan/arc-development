@@ -115,31 +115,23 @@ const MobileApp = () => {
               </IconButton>
             </Grid>
           </Hidden>
-          <Grid item container direction="column" className={classes.heading}>
-            <Grid item>
-              <Typography variant="h2" paragraph>
-                iOS/Android App Development
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                Mobile apps allow you to take your tools on the go.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                Wether you want an app for you customers, employees, or
-                yourself, we can build cross-platform native solutions for any
-                part of you business process. This opens you up to a whole new
-                world of possibilities by taking advantage of phone features
-                like the camera, GPS, push notifications and more.
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body1" paragraph>
-                Convenience. Connection.
-              </Typography>
-            </Grid>
+          <Grid item className={classes.heading}>
+            <Typography variant="h2" paragraph>
+              iOS/Android App Development
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Mobile apps allow you to take your tools on the go.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Wether you want an app for you customers, employees, or yourself,
+              we can build cross-platform native solutions for any part of you
+              business process. This opens you up to a whole new world of
+              possibilities by taking advantage of phone features like the
+              camera, GPS, push notifications and more.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Convenience. Connection.
+            </Typography>
           </Grid>
           <Hidden mdDown>
             <Grid item>
