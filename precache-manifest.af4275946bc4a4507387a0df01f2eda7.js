@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c33240b6f2912142004d5343fb7ccdc4",
+    "revision": "1a66066430d063fdbbc8bc8b8fe3caf1",
     "url": "/arc-development/index.html"
   },
   {
-    "revision": "c2ce8f563e80c351b974",
-    "url": "/arc-development/static/js/2.12756b35.chunk.js"
+    "revision": "8d945fe1fd83bbca5dfe",
+    "url": "/arc-development/static/js/2.0ba26c6b.chunk.js"
   },
   {
     "revision": "14c54f8d621b663941f58f815237ec03",
-    "url": "/arc-development/static/js/2.12756b35.chunk.js.LICENSE.txt"
+    "url": "/arc-development/static/js/2.0ba26c6b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9e015bfbc033411d9108",
-    "url": "/arc-development/static/js/main.4eeead26.chunk.js"
+    "revision": "e2f50dca12f8896be30f",
+    "url": "/arc-development/static/js/main.c835cb42.chunk.js"
   },
   {
     "revision": "24ddae678c464ff103fe",
@@ -44,6 +44,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/arc-development/static/media/cash.c5e21215.svg"
   },
   {
+    "revision": "6323be1c173dd9e2e4007df304745923",
+    "url": "/arc-development/static/media/extendAccess.6323be1c.svg"
+  },
+  {
     "revision": "73caaa01e4d700f4b23e47665ecc2727",
     "url": "/arc-development/static/media/facebook.73caaa01.svg"
   },
@@ -58,6 +62,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a006de5a23bfb510cd736709ac744d75",
     "url": "/arc-development/static/media/img_1.a006de5a.png"
+  },
+  {
+    "revision": "5813959c49f8154fedb18c195c2b02e6",
+    "url": "/arc-development/static/media/increaseEngagement.5813959c.svg"
   },
   {
     "revision": "e22079d988bd34dee9239a6288b42e7d",
@@ -86,6 +94,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9ce632eb2f76db1534b07869a48b59fc",
     "url": "/arc-development/static/media/stopwatch.9ce632eb.svg"
+  },
+  {
+    "revision": "18d93704942fa030299061605654ef7d",
+    "url": "/arc-development/static/media/swissKnife.18d93704.svg"
   },
   {
     "revision": "435fc4bc44c1e90d5f00f4efccdb9b1d",
