@@ -1,21 +1,23 @@
 {
   "files": {
-    "main.js": "/arc-development/static/js/main.c835cb42.chunk.js",
-    "main.js.map": "/arc-development/static/js/main.c835cb42.chunk.js.map",
+    "main.js": "/arc-development/static/js/main.1f75b7af.chunk.js",
+    "main.js.map": "/arc-development/static/js/main.1f75b7af.chunk.js.map",
     "runtime-main.js": "/arc-development/static/js/runtime-main.bd6f039d.js",
     "runtime-main.js.map": "/arc-development/static/js/runtime-main.bd6f039d.js.map",
-    "static/js/2.0ba26c6b.chunk.js": "/arc-development/static/js/2.0ba26c6b.chunk.js",
-    "static/js/2.0ba26c6b.chunk.js.map": "/arc-development/static/js/2.0ba26c6b.chunk.js.map",
+    "static/js/2.1c421051.chunk.js": "/arc-development/static/js/2.1c421051.chunk.js",
+    "static/js/2.1c421051.chunk.js.map": "/arc-development/static/js/2.1c421051.chunk.js.map",
     "index.html": "/arc-development/index.html",
-    "precache-manifest.af4275946bc4a4507387a0df01f2eda7.js": "/arc-development/precache-manifest.af4275946bc4a4507387a0df01f2eda7.js",
+    "precache-manifest.6f0200cd3babd8c437c5e91a6f0eaf6b.js": "/arc-development/precache-manifest.6f0200cd3babd8c437c5e91a6f0eaf6b.js",
     "service-worker.js": "/arc-development/service-worker.js",
-    "static/js/2.0ba26c6b.chunk.js.LICENSE.txt": "/arc-development/static/js/2.0ba26c6b.chunk.js.LICENSE.txt",
+    "static/js/2.1c421051.chunk.js.LICENSE.txt": "/arc-development/static/js/2.1c421051.chunk.js.LICENSE.txt",
     "static/media/Custom Software Icon.svg": "/arc-development/static/media/Custom Software Icon.350387f5.svg",
     "static/media/Footer Adornment.svg": "/arc-development/static/media/Footer Adornment.e227d87b.svg",
+    "static/media/analytics.svg": "/arc-development/static/media/analytics.19779204.svg",
     "static/media/backArrow.svg": "/arc-development/static/media/backArrow.7f1d7c61.svg",
     "static/media/background.jpg": "/arc-development/static/media/background.1894f630.jpg",
     "static/media/bulb.svg": "/arc-development/static/media/bulb.0c8991bc.svg",
     "static/media/cash.svg": "/arc-development/static/media/cash.c5e21215.svg",
+    "static/media/ecommerce.svg": "/arc-development/static/media/ecommerce.12e4fb63.svg",
     "static/media/extendAccess.svg": "/arc-development/static/media/extendAccess.6323be1c.svg",
     "static/media/facebook.svg": "/arc-development/static/media/facebook.73caaa01.svg",
     "static/media/forwardArrow.svg": "/arc-development/static/media/forwardArrow.0e398eb1.svg",
@@ -26,6 +28,7 @@
     "static/media/instagram.svg": "/arc-development/static/media/instagram.0b117993.svg",
     "static/media/mobileBackground.jpg": "/arc-development/static/media/mobileBackground.eb953523.jpg",
     "static/media/mobileIcon.svg": "/arc-development/static/media/mobileIcon.6838a9fb.svg",
+    "static/media/outreach.svg": "/arc-development/static/media/outreach.1360c2cf.svg",
     "static/media/repeatingBackground.svg": "/arc-development/static/media/repeatingBackground.c608f23f.svg",
     "static/media/root.svg": "/arc-development/static/media/root.3ad96c4b.svg",
     "static/media/stopwatch.svg": "/arc-development/static/media/stopwatch.9ce632eb.svg",
@@ -35,7 +38,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.bd6f039d.js",
-    "static/js/2.0ba26c6b.chunk.js",
-    "static/js/main.c835cb42.chunk.js"
+    "static/js/2.1c421051.chunk.js",
+    "static/js/main.1f75b7af.chunk.js"
   ]
 }

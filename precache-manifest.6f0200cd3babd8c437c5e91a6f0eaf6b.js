@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a66066430d063fdbbc8bc8b8fe3caf1",
+    "revision": "e814aafb8049cd56a72695dba4eaa7f1",
     "url": "/arc-development/index.html"
   },
   {
-    "revision": "8d945fe1fd83bbca5dfe",
-    "url": "/arc-development/static/js/2.0ba26c6b.chunk.js"
+    "revision": "c310c10372280f9acb84",
+    "url": "/arc-development/static/js/2.1c421051.chunk.js"
   },
   {
     "revision": "14c54f8d621b663941f58f815237ec03",
-    "url": "/arc-development/static/js/2.0ba26c6b.chunk.js.LICENSE.txt"
+    "url": "/arc-development/static/js/2.1c421051.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e2f50dca12f8896be30f",
-    "url": "/arc-development/static/js/main.c835cb42.chunk.js"
+    "revision": "368c9c37684ad3ebdd67",
+    "url": "/arc-development/static/js/main.1f75b7af.chunk.js"
   },
   {
     "revision": "24ddae678c464ff103fe",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e227d87b2dec28a248985906d655c9ed",
     "url": "/arc-development/static/media/Footer Adornment.e227d87b.svg"
+  },
+  {
+    "revision": "197792043f0690804982103d4bcf517e",
+    "url": "/arc-development/static/media/analytics.19779204.svg"
   },
   {
     "revision": "7f1d7c61383b716ea9211893113df9ab",
@@ -42,6 +46,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c5e21215338e61508c27fcbee99855a9",
     "url": "/arc-development/static/media/cash.c5e21215.svg"
+  },
+  {
+    "revision": "12e4fb6304961c39cbd06fa45721f36d",
+    "url": "/arc-development/static/media/ecommerce.12e4fb63.svg"
   },
   {
     "revision": "6323be1c173dd9e2e4007df304745923",
@@ -82,6 +90,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "6838a9fb85f01988c85e38475ae59fb0",
     "url": "/arc-development/static/media/mobileIcon.6838a9fb.svg"
+  },
+  {
+    "revision": "1360c2cf3f702828e1ebc23d29443a3a",
+    "url": "/arc-development/static/media/outreach.1360c2cf.svg"
   },
   {
     "revision": "c608f23f6d6a6d579e2138bd77b6d054",
