@@ -187,13 +187,13 @@ const Home = () => {
 
       {/*----Services Block----*/}
 
-      {/*--Custom Software Development--*/}
       <Grid
         item
         container
         direction="column"
         className={classes.servicesContainer}
       >
+        {/*--Custom Software Development--*/}
         <Grid
           item
           container

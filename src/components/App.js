@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import Services from "../pages/Services";
 import CustomSoftware from "../pages/CustomSoftware";
 import MobileApp from "../pages/MobileApp";
+import Websites from "../pages/Websites";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
@@ -26,11 +27,7 @@ const App = () => {
               <Route exact path="/services" component={Services} />
               <Route exact path="/customsoftware" component={CustomSoftware} />
               <Route exact path="/mobileapps" component={MobileApp} />
-              <Route
-                exact
-                path="/websites"
-                component={() => <div>Websites</div>}
-              />
+              <Route exact path="/websites" component={Websites} />
               <Route
                 exact
                 path="/revolution"
