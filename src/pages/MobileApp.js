@@ -28,6 +28,15 @@ const useStyles = makeStyles((theme) => ({
       padding: "2rem 1rem",
     },
   },
+  headingContainer: {
+    marginBottom: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "3rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "2rem",
+    },
+  },
   heading: {
     maxWidth: "40rem",
     margin: "0 3rem",
@@ -103,6 +112,7 @@ const MobileApp = () => {
           direction="row"
           justify="center"
           alignItems="center"
+          className={classes.headingContainer}
         >
           <Hidden mdDown>
             <Grid item>

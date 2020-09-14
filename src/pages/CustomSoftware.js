@@ -32,6 +32,15 @@ const useStyles = makeStyles((theme) => ({
       padding: "2rem 1rem",
     },
   },
+  headingContainer: {
+    marginBottom: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1rem",
+    },
+  },
   heading: {
     maxWidth: "40rem",
     margin: "0 3rem",
@@ -67,6 +76,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       maxWidth: "28rem",
     },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "40rem",
+    },
   },
   animation: {
     width: "100%",
@@ -99,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1rem",
     [theme.breakpoints.down("sm")]: {
       textAlign: "left",
+      maxWidth: "40rem",
     },
   },
 }));
@@ -176,6 +189,7 @@ const CustomSoftware = () => {
           direction="row"
           justify="center"
           alignItems="center"
+          className={classes.headingContainer}
         >
           <Hidden mdDown>
             <Grid item>
