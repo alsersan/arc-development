@@ -20,12 +20,12 @@ import engagement from "../assets/increaseEngagement.svg";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    padding: "4rem 4rem",
+    padding: "4rem 4rem 8rem",
     [theme.breakpoints.down("sm")]: {
-      padding: "3rem 2rem",
+      padding: "3rem 2rem 6rem",
     },
     [theme.breakpoints.down("xs")]: {
-      padding: "2rem 1rem",
+      padding: "2rem 1rem 4rem",
     },
   },
   headingContainer: {
