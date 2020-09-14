@@ -14,7 +14,7 @@ import { useTabContext } from "../../contexts/selectedTabContext";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: "0 4rem",
-    height: "40rem",
+    height: "35rem",
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   },
   estimateButton: {
     width: 145,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "2rem",
+    },
   },
 }));
 
@@ -45,7 +48,7 @@ const CallToAction = () => {
       container
       alignItems="center"
       direction={matchesSM ? "column" : "row"}
-      justify={matchesSM ? "space-evenly" : "space-between"}
+      justify={matchesSM ? "center" : "space-between"}
       className={classes.container}
     >
       <Grid item>
@@ -64,8 +67,8 @@ const CallToAction = () => {
             <LearnMoreButton
               color={theme.palette.primary.main}
               type="small"
-              route="services"
-              onClick={() => setTabIndex(1)}
+              route="/revolution"
+              onClick={() => setTabIndex(2)}
             />
           </Grid>
         </Grid>
