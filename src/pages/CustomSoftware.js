@@ -126,7 +126,7 @@ const CustomSoftware = () => {
 
   const documentsOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: documentsAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -135,7 +135,7 @@ const CustomSoftware = () => {
 
   const scaleOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: scaleAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -144,7 +144,7 @@ const CustomSoftware = () => {
 
   const automationOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: automationAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -153,7 +153,7 @@ const CustomSoftware = () => {
 
   const uxOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: uxAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",

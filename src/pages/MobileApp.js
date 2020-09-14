@@ -95,7 +95,7 @@ const MobileApp = () => {
 
   const integrationOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: integrationAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
