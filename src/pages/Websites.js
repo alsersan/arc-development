@@ -15,6 +15,7 @@ import CallToAction from "../components/ui/CallToAction";
 import analytics from "../assets/analytics.svg";
 import ecommerce from "../assets/ecommerce.svg";
 import outreach from "../assets/outreach.svg";
+import seo from "../assets/seo.svg";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -183,7 +184,7 @@ const Websites = () => {
             <img
               className={classes.image}
               src={ecommerce}
-              alt="graph with magnifying glass revealing 1's and 0's"
+              alt="world outline made of dollar signs"
             />
           </Grid>
         </Grid>
@@ -210,10 +211,35 @@ const Websites = () => {
             </Typography>
           </Grid>
           <Grid item>
+            <img className={classes.image} src={outreach} alt="megaphone" />
+          </Grid>
+        </Grid>
+
+        {/*--Text row 4--*/}
+        <Grid
+          item
+          container
+          direction={matchesSM ? "column" : "row"}
+          justify={matchesSM ? "center" : "flex-end"}
+          alignItems="center"
+          className={classes.sectionContainer}
+        >
+          <Grid item className={classes.textContainer}>
+            <Typography variant="h4" paragraph>
+              Search Engine Optimization
+            </Typography>
+            <Typography variant="body1" paragraph>
+              How often have you been to the second page of Google results?
+            </Typography>
+            <Typography variant="body1" paragraph>
+              If you are like us, probably never.
+            </Typography>
+          </Grid>
+          <Grid item>
             <img
               className={classes.image}
-              src={outreach}
-              alt="graph with magnifying glass revealing 1's and 0's"
+              src={seo}
+              alt="website standing on winner's podium"
             />
           </Grid>
         </Grid>
