@@ -10,6 +10,7 @@ import Services from "../pages/Services";
 import CustomSoftware from "../pages/CustomSoftware";
 import MobileApp from "../pages/MobileApp";
 import Websites from "../pages/Websites";
+import Revolution from "../pages/Revolution";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
@@ -28,11 +29,7 @@ const App = () => {
               <Route exact path="/customsoftware" component={CustomSoftware} />
               <Route exact path="/mobileapps" component={MobileApp} />
               <Route exact path="/websites" component={Websites} />
-              <Route
-                exact
-                path="/revolution"
-                component={() => <div>Revolution</div>}
-              />
+              <Route exact path="/revolution" component={Revolution} />
               <Route exact path="/about" component={() => <div>About</div>} />
               <Route
                 exact

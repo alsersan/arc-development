@@ -188,7 +188,7 @@ const MobileApp = () => {
             </Typography>
             <Typography variant="body1" paragraph>
               Our cutting-edge development process allows us to create apps for
-              iPhone, Android and tablests - all at the same time.
+              iPhone, Android and tablests – all at the same time.
             </Typography>
             <Typography variant="body1" paragraph>
               This significantly reduces costs and creates a more unified brand
