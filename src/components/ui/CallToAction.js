@@ -14,7 +14,7 @@ import { useTabContext } from "../../contexts/selectedTabContext";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: "0 4rem",
-    height: "35rem",
+    height: "40rem",
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     [theme.breakpoints.down("sm")]: {
       backgroundImage: `url(${mobileBackground})`,
+      height: "35rem",
       padding: "0 2rem",
     },
     [theme.breakpoints.down("xs")]: {
