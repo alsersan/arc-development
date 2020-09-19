@@ -11,6 +11,7 @@ import CustomSoftware from "../pages/CustomSoftware";
 import MobileApp from "../pages/MobileApp";
 import Websites from "../pages/Websites";
 import Revolution from "../pages/Revolution";
+import About from "../pages/About";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
@@ -30,7 +31,7 @@ const App = () => {
               <Route exact path="/mobileapps" component={MobileApp} />
               <Route exact path="/websites" component={Websites} />
               <Route exact path="/revolution" component={Revolution} />
-              <Route exact path="/about" component={() => <div>About</div>} />
+              <Route exact path="/about" component={About} />
               <Route
                 exact
                 path="/contact"
