@@ -78,4 +78,32 @@ export default createMuiTheme({
       textTransform: "none",
     },
   },
+  overrides: {
+    MuiInputLabel: {
+      root: {
+        color: arcBlue,
+      },
+    },
+    MuiInput: {
+      underline: {
+        "&:before": {
+          borderBottomColor: arcBlue,
+        },
+        "&:hover:not($disabled):not($focused):not($error):before": {
+          borderBottomColor: arcBlue,
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+          borderColor: arcBlue,
+          borderWidth: "2px",
+        },
+      },
+      notchedOutline: {
+        borderColor: arcBlue,
+      },
+    },
+  },
 });
