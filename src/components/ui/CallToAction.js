@@ -13,6 +13,7 @@ import { useTabContext } from "../../contexts/selectedTabContext";
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    minHeight: "100%",
     padding: "0 4rem",
     height: "40rem",
     backgroundImage: `url(${background})`,
