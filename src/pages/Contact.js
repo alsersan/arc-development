@@ -13,7 +13,7 @@ import CallToAction from "../components/ui/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
-    padding: "0 4rem",
+    padding: "0 4rem 2rem",
     [theme.breakpoints.down("md")]: {
       padding: "0 4rem 3rem",
     },
@@ -29,7 +29,16 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "0.5rem",
     color: theme.palette.primary.main,
   },
+  link: {
+    textDecoration: "none",
+    color: "inherit",
+    "&:hover": {
+      color: theme.palette.primary.light,
+      textDecoration: "underline",
+    },
+  },
   button: {
+    width: "100%",
     backgroundColor: theme.palette.primary.main,
     color: "#fff",
     fontFamily: "Roboto",
@@ -46,12 +55,67 @@ const Contact = () => {
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
   const [name, setName] = useState("");
+  const [nameHelper, setNameHelper] = useState("");
+
   const [email, setEmail] = useState("");
+  const [emailHelper, setEmailHelper] = useState("");
+
   const [phone, setPhone] = useState("");
+  const [phoneHelper, setPhoneHelper] = useState("");
+
   const [message, setMessage] = useState("");
+  const [messageHelper, setMessageHelper] = useState("");
+
+  const checkName = (input) => {
+    if (input === "") {
+      setNameHelper("This field is required");
+    } else {
+      setNameHelper("");
+    }
+  };
+
+  const checkEmail = (input) => {
+    const valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(input);
+    if (input === "") {
+      setEmailHelper("This field is required");
+    } else if (!valid) {
+      setEmailHelper("Invalid email");
+    } else {
+      setEmailHelper("");
+    }
+  };
+
+  const checkPhone = (input) => {
+    const valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(
+      input
+    );
+    if (input === "") {
+      setPhoneHelper("This field is required");
+    } else if (!valid) {
+      setPhoneHelper("Invalid phone number");
+    } else {
+      setPhoneHelper("");
+    }
+  };
+
+  const checkMessage = (input) => {
+    if (input === "") {
+      setMessageHelper("This field is required");
+    } else {
+      setMessageHelper("");
+    }
+  };
+
+  const onButtonClick = () => {
+    checkName(name);
+    checkEmail(email);
+    checkPhone(phone);
+    checkMessage(message);
+  };
 
   return (
     <Grid container direction={matchesMD ? "column" : "row"}>
+      {console.log(`Name is: ${name}`)}
       <Grid
         item
         container
@@ -71,13 +135,17 @@ const Contact = () => {
           <Grid item>
             <PhoneIcon className={classes.icon} />
             <Typography variant="body1" display="inline" color="primary">
-              (316) 572-8340
+              <a href="tel:3165728340" className={classes.link}>
+                (316) 572-8340
+              </a>
             </Typography>
           </Grid>
           <Grid item>
             <EmailIcon className={classes.icon} />
             <Typography variant="body1" display="inline" color="primary">
-              zach@gmail.com
+              <a href="mailto: zach@gmail.com" className={classes.link}>
+                zach@gmail.com
+              </a>
             </Typography>
           </Grid>
         </Grid>
@@ -87,20 +155,30 @@ const Contact = () => {
             id="name"
             placeholder="John Doe"
             fullWidth
+            error={nameHelper !== ""}
+            helperText={nameHelper}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              checkName(e.target.value);
+            }}
             InputLabelProps={{
               shrink: true,
             }}
           />
           <TextField
-            style={{ margin: "0.5rem 0" }}
+            style={{ margin: "1rem 0" }}
             label="Email"
             id="email"
             placeholder="johndoe@example.com"
+            error={emailHelper !== ""}
+            helperText={emailHelper}
             fullWidth
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              checkEmail(e.target.value);
+            }}
             InputLabelProps={{
               shrink: true,
             }}
@@ -109,9 +187,14 @@ const Contact = () => {
             label="Phone"
             id="phone"
             placeholder="(555) 555-5555"
+            error={phoneHelper !== ""}
+            helperText={phoneHelper}
             fullWidth
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              setPhone(e.target.value);
+              checkPhone(e.target.value);
+            }}
             InputLabelProps={{
               shrink: true,
             }}
@@ -123,10 +206,15 @@ const Contact = () => {
             variant="outlined"
             multiline
             rows={4}
+            error={messageHelper !== ""}
+            helperText={messageHelper}
             fullWidth
             placeholder="Hello! We have an idea that we'd just love to share."
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              checkMessage(e.target.value);
+            }}
           />
         </Grid>
         <Grid
@@ -135,7 +223,11 @@ const Contact = () => {
           justify="center"
           className={classes.sectionContainer}
         >
-          <Button variant="contained" className={classes.button}>
+          <Button
+            variant="contained"
+            className={classes.button}
+            onClick={onButtonClick}
+          >
             SUBMIT
           </Button>
         </Grid>

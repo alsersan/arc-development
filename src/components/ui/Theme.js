@@ -97,12 +97,21 @@ export default createMuiTheme({
     MuiOutlinedInput: {
       root: {
         "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+          borderWidth: "2px",
           borderColor: arcBlue,
+        },
+        "&$error $notchedOutline": {
           borderWidth: "2px",
         },
       },
       notchedOutline: {
         borderColor: arcBlue,
+      },
+    },
+    MuiFormHelperText: {
+      contained: {
+        marginLeft: 0,
+        marginRight: 0,
       },
     },
   },
