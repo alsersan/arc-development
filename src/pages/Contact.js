@@ -8,6 +8,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import PhoneIcon from "@material-ui/icons/Phone";
 import EmailIcon from "@material-ui/icons/Email";
 import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
 
 import CallToAction from "../components/ui/CallToAction";
 
@@ -37,8 +39,8 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "underline",
     },
   },
-  button: {
-    width: "100%",
+  containedButton: {
+    width: "8rem",
     backgroundColor: theme.palette.primary.main,
     color: "#fff",
     fontFamily: "Roboto",
@@ -47,12 +49,39 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.light,
     },
   },
+  outlinedButton: {
+    color: theme.palette.primary.main,
+    borderColor: theme.palette.primary.main,
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    width: "8rem",
+  },
+  modalHeader: {
+    padding: "1rem 1.5rem",
+    textAlign: "center",
+  },
+  modalSectionContainer: {
+    marginBottom: "1rem",
+  },
+  modalSection: {
+    width: "6rem",
+    fontWeight: 500,
+    color: theme.palette.primary.main,
+  },
+  modalData: {
+    minWidth: "14rem",
+    maxWidth: "20rem",
+  },
+  modalButtonContainer: {
+    margin: "1rem 0",
+  },
 }));
 
 const Contact = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const [name, setName] = useState("");
   const [nameHelper, setNameHelper] = useState("");
@@ -65,6 +94,8 @@ const Contact = () => {
 
   const [message, setMessage] = useState("");
   const [messageHelper, setMessageHelper] = useState("");
+
+  const [open, setOpen] = useState(false);
 
   const checkName = (input) => {
     if (input === "") {
@@ -106,11 +137,32 @@ const Contact = () => {
     }
   };
 
-  const onButtonClick = () => {
+  const onSubmitClick = () => {
     checkName(name);
     checkEmail(email);
     checkPhone(phone);
     checkMessage(message);
+
+    if (
+      name &&
+      email &&
+      phone &&
+      message &&
+      !nameHelper &&
+      !emailHelper &&
+      !phoneHelper &&
+      !messageHelper
+    ) {
+      setOpen(true);
+    }
+  };
+
+  const onConfirmClick = () => {
+    setOpen(false);
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
   };
 
   return (
@@ -225,13 +277,103 @@ const Contact = () => {
         >
           <Button
             variant="contained"
-            className={classes.button}
-            onClick={onButtonClick}
+            className={classes.containedButton}
+            style={{ width: "100%" }}
+            onClick={onSubmitClick}
           >
             SUBMIT
           </Button>
         </Grid>
       </Grid>
+
+      {/*--Dialog (modal)--*/}
+      <Dialog
+        fullScreen={matchesXS}
+        open={open}
+        onClose={() => setOpen(false)}
+        disableBackdropClick
+        disableEscapeKeyDown
+        //in order to overlay the header and prevent accidental navigation
+        style={{ zIndex: "2000" }}
+      >
+        <Grid container direction="column">
+          <Grid item className={classes.modalHeader}>
+            <Typography variant="h4">Confirm Data</Typography>
+          </Grid>
+
+          <Grid item container direction="column">
+            <DialogContent dividers>
+              <Grid item container className={classes.modalSectionContainer}>
+                <Grid item>
+                  <Typography variant="body1" className={classes.modalSection}>
+                    Name:
+                  </Typography>
+                </Grid>
+                <Grid item className={classes.modalData}>
+                  <Typography variant="body1">{name}</Typography>
+                </Grid>
+              </Grid>
+              <Grid item container className={classes.modalSectionContainer}>
+                <Grid item>
+                  <Typography variant="body1" className={classes.modalSection}>
+                    Email:
+                  </Typography>
+                </Grid>
+                <Grid item className={classes.modalData}>
+                  <Typography variant="body1">{email}</Typography>
+                </Grid>
+              </Grid>
+              <Grid item container className={classes.modalSectionContainer}>
+                <Grid item>
+                  <Typography variant="body1" className={classes.modalSection}>
+                    Phone:
+                  </Typography>
+                </Grid>
+                <Grid item className={classes.modalData}>
+                  <Typography variant="body1">{phone}</Typography>
+                </Grid>
+              </Grid>
+              <Grid item container>
+                <Grid item>
+                  <Typography variant="body1" className={classes.modalSection}>
+                    Message:
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  className={classes.modalData}
+                  style={{ maxHeight: "8rem", overflowY: "auto" }}
+                >
+                  <Typography variant="body1">{message}</Typography>
+                </Grid>
+              </Grid>
+            </DialogContent>
+            <Grid
+              item
+              container
+              justify="space-evenly"
+              className={classes.modalButtonContainer}
+            >
+              <Button
+                variant="outlined"
+                onClick={() => setOpen(false)}
+                className={classes.outlinedButton}
+              >
+                cancel
+              </Button>
+              <Button
+                variant="contained"
+                onClick={onConfirmClick}
+                className={classes.containedButton}
+              >
+                confirm
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Dialog>
+
+      {/*--CallToActopn--*/}
       <Grid item lg={8}>
         <CallToAction />
       </Grid>
