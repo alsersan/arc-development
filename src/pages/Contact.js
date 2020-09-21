@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.primary.light,
       textDecoration: "underline",
     },
+    [theme.breakpoints.down("md")]: {
+      textDecoration: "underline",
+    },
   },
   containedButton: {
     width: "8rem",
@@ -71,6 +74,16 @@ const useStyles = makeStyles((theme) => ({
   modalData: {
     minWidth: "14rem",
     maxWidth: "20rem",
+  },
+  modalDataMessage: {
+    minWidth: "14rem",
+    maxWidth: "20rem",
+    maxHeight: "8rem",
+    overflowY: "auto",
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "100%",
+      maxHeight: "15rem",
+    },
   },
   modalButtonContainer: {
     margin: "1rem 0",
@@ -257,7 +270,7 @@ const Contact = () => {
             id="message"
             variant="outlined"
             multiline
-            rows={4}
+            rows={matchesMD ? 8 : 5}
             error={messageHelper !== ""}
             helperText={messageHelper}
             fullWidth
@@ -333,17 +346,13 @@ const Contact = () => {
                   <Typography variant="body1">{phone}</Typography>
                 </Grid>
               </Grid>
-              <Grid item container>
+              <Grid item container direction={matchesXS ? "column" : "row"}>
                 <Grid item>
                   <Typography variant="body1" className={classes.modalSection}>
                     Message:
                   </Typography>
                 </Grid>
-                <Grid
-                  item
-                  className={classes.modalData}
-                  style={{ maxHeight: "8rem", overflowY: "auto" }}
-                >
+                <Grid item className={classes.modalDataMessage}>
                   <Typography variant="body1">{message}</Typography>
                 </Grid>
               </Grid>
