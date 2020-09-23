@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -10,8 +11,10 @@ import EmailIcon from "@material-ui/icons/Email";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import CallToAction from "../components/ui/CallToAction";
+import SnackbarMessage from "../components/ui/SnackbarMessage";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -110,6 +113,14 @@ const Contact = () => {
 
   const [open, setOpen] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    type: "",
+    message: "",
+  });
+
   const checkName = (input) => {
     if (input === "") {
       setNameHelper("This field is required");
@@ -171,11 +182,43 @@ const Contact = () => {
   };
 
   const onConfirmClick = () => {
-    setOpen(false);
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
+    setLoading(true);
+    axios
+      .get(
+        "https://us-central1-arc-development-b994f.cloudfunctions.net/sendMail",
+        {
+          params: {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+          },
+        }
+      )
+      .then((res) => {
+        setOpen(false);
+        setLoading(false);
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setSnackbar({
+          open: true,
+          type: "success",
+          message: "message sent successfully",
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        setOpen(false);
+        setLoading(false);
+        setSnackbar({
+          open: true,
+          type: "error",
+          message: "Something went wrong. Please try again",
+        });
+        console.log(err);
+      });
   };
 
   return (
@@ -299,6 +342,15 @@ const Contact = () => {
         </Grid>
       </Grid>
 
+      {snackbar.open && (
+        <SnackbarMessage
+          open={snackbar.open}
+          onClose={setSnackbar}
+          message={snackbar.message}
+          type={snackbar.type}
+        />
+      )}
+
       {/*--Dialog (modal)--*/}
       <Dialog
         fullScreen={matchesXS}
@@ -363,20 +415,29 @@ const Contact = () => {
               justify="space-evenly"
               className={classes.modalButtonContainer}
             >
-              <Button
-                variant="outlined"
-                onClick={() => setOpen(false)}
-                className={classes.outlinedButton}
-              >
-                cancel
-              </Button>
-              <Button
-                variant="contained"
-                onClick={onConfirmClick}
-                className={classes.containedButton}
-              >
-                confirm
-              </Button>
+              {loading ? (
+                <CircularProgress size={36} />
+              ) : (
+                <React.Fragment>
+                  <Button
+                    variant="outlined"
+                    onClick={() => setOpen(false)}
+                    disabled={loading}
+                    className={classes.outlinedButton}
+                  >
+                    cancel
+                  </Button>
+
+                  <Button
+                    variant="contained"
+                    onClick={onConfirmClick}
+                    disabled={loading}
+                    className={classes.containedButton}
+                  >
+                    confirm
+                  </Button>
+                </React.Fragment>
+              )}
             </Grid>
           </Grid>
         </Grid>
