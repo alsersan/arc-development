@@ -321,7 +321,7 @@ const Contact = () => {
         message={message}
         loading={loading}
         open={open}
-        setOpen={setOpen}
+        onClose={() => setOpen(false)}
         onClick={onConfirmClick}
       />
 

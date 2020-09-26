@@ -13,6 +13,7 @@ import Websites from "../pages/Websites";
 import Revolution from "../pages/Revolution";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import Estimate from "../pages/Estimate";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
@@ -34,11 +35,7 @@ const App = () => {
               <Route exact path="/revolution" component={Revolution} />
               <Route exact path="/about" component={About} />
               <Route exact path="/contact" component={Contact} />
-              <Route
-                exact
-                path="/estimate"
-                component={() => <div>Estimate</div>}
-              />
+              <Route exact path="/estimate" component={Estimate} />
             </Switch>
             <Footer />
           </SelectedTabProvider>

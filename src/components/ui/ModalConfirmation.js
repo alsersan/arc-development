@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ModalConfirmation = ({
   open,
-  setOpen,
+  onClose,
   name,
   email,
   phone,
@@ -76,7 +76,7 @@ const ModalConfirmation = ({
     <Dialog
       fullScreen={matchesXS}
       open={open}
-      onClose={() => setOpen(false)}
+      onClose={onClose}
       disableBackdropClick
       disableEscapeKeyDown
       //in order to overlay the header and prevent accidental navigation
@@ -142,7 +142,7 @@ const ModalConfirmation = ({
               <React.Fragment>
                 <Button
                   variant="outlined"
-                  onClick={() => setOpen(false)}
+                  onClick={onClose}
                   disabled={loading}
                   className={classes.outlinedButton}
                 >
