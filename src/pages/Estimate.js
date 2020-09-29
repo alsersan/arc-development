@@ -569,6 +569,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: "9rem",
   },
+  imageButton: {
+    borderRadius: 10,
+  },
   estimateButton: {
     ...theme.typography.estimate,
     borderRadius: "50px",
@@ -650,11 +653,13 @@ const Estimate = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <img
-                  src={option.icon}
-                  alt={option.iconAlt}
-                  className={classes.image}
-                />
+                <IconButton className={classes.imageButton}>
+                  <img
+                    src={option.icon}
+                    alt={option.iconAlt}
+                    className={classes.image}
+                  />
+                </IconButton>
               </Grid>
             </Grid>
           ))}
