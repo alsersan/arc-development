@@ -36,263 +36,12 @@ import biometrics from "../assets/biometrics.svg";
 
 import estimateAnimation from "../animations/estimateAnimation/data.json";
 
-// const defaultQuestions = [
-//   {
-//     id: 1,
-//     title: "Which service are you interested in?",
-//     active: true,
-//     options: [
-//       {
-//         id: 1,
-//         title: "Custom Software Development",
-//         icon: customSoftwareIcon,
-//         iconAlt: "three floating screens",
-//         selected: false,
-//         cost: 0,
-//       },
-//       {
-//         id: 2,
-//         title: "iOS/Android App Development",
-//         icon: appDevelopmentIcon,
-//         iconAlt: "phones and tablets outline",
-//         selected: false,
-//         cost: 0,
-//       },
-//       {
-//         id: 3,
-//         title: "Website Development",
-//         icon: websiteIcon,
-//         iconAlt: "computer outline",
-//         selected: false,
-//         cost: 0,
-//       },
-//     ],
-//   },
-// ];
-
-// const softwareQuestions = [
-//   { ...defaultQuestions[0], active: false },
-//   {
-//     id: 2,
-//     title: "Which platforms do you need supported?",
-//     subtitle: "Select all that apply.",
-//     options: [
-//       {
-//         id: 1,
-//         title: "Web Application",
-//         subtitle: null,
-//         icon: websiteIcon,
-//         iconAlt: "computer outline",
-//         selected: false,
-//         cost: 100,
-//       },
-//       {
-//         id: 2,
-//         title: "iOS Application",
-//         subtitle: null,
-//         icon: iphone,
-//         iconAlt: "outline of iphone",
-//         selected: false,
-//         cost: 100,
-//       },
-//       {
-//         id: 3,
-//         title: "Android Application",
-//         subtitle: null,
-//         icon: android,
-//         iconAlt: "outlines of android phone",
-//         selected: false,
-//         cost: 100,
-//       },
-//     ],
-//     active: true,
-//   },
-//   {
-//     id: 3,
-//     title: "Which features do you expect to use?",
-//     subtitle: "Select all that apply.",
-//     options: [
-//       {
-//         id: 1,
-//         title: "Photo/Video",
-//         subtitle: null,
-//         icon: camera,
-//         iconAlt: "camera outline",
-//         selected: false,
-//         cost: 25,
-//       },
-//       {
-//         id: 2,
-//         title: "GPS",
-//         subtitle: null,
-//         icon: gps,
-//         iconAlt: "gps pin",
-//         selected: false,
-//         cost: 25,
-//       },
-//       {
-//         id: 3,
-//         title: "File Transfer",
-//         subtitle: null,
-//         icon: upload,
-//         iconAlt: "outline of cloud with arrow pointing up",
-//         selected: false,
-//         cost: 25,
-//       },
-//     ],
-//     active: false,
-//   },
-//   {
-//     id: 4,
-//     title: "Which features do you expect to use?",
-//     subtitle: "Select all that apply.",
-//     options: [
-//       {
-//         id: 1,
-//         title: "Users/Authentication",
-//         subtitle: null,
-//         icon: users,
-//         iconAlt: "outline of a person with a plus sign",
-//         selected: false,
-//         cost: 25,
-//       },
-//       {
-//         id: 2,
-//         title: "Biometrics",
-//         subtitle: null,
-//         icon: biometrics,
-//         iconAlt: "fingerprint",
-//         selected: false,
-//         cost: 25,
-//       },
-//       {
-//         id: 3,
-//         title: "Push Notifications",
-//         subtitle: null,
-//         icon: bell,
-//         iconAlt: "outline of a bell",
-//         selected: false,
-//         cost: 25,
-//       },
-//     ],
-//     active: false,
-//   },
-//   {
-//     id: 5,
-//     title: "What type of custom features do you expect to need?",
-//     subtitle: "Select one.",
-//     options: [
-//       {
-//         id: 1,
-//         title: "Low Complexity",
-//         subtitle: "(Informational)",
-//         icon: info,
-//         iconAlt: "'i' inside a circle",
-//         selected: false,
-//         cost: 25,
-//       },
-//       {
-//         id: 2,
-//         title: "Medium Complexity",
-//         subtitle: "(Interactive, Customizable, Realtime)",
-//         icon: customized,
-//         iconAlt: "two toggle switches",
-//         selected: false,
-//         cost: 50,
-//       },
-//       {
-//         id: 3,
-//         title: "High Complexity",
-//         subtitle: "(Data Modeling and Computation)",
-//         icon: data,
-//         iconAlt: "outline of line graph",
-//         selected: false,
-//         cost: 100,
-//       },
-//     ],
-//     active: false,
-//   },
-//   {
-//     id: 6,
-//     title: "How many users do you expect?",
-//     subtitle: "Select one.",
-//     options: [
-//       {
-//         id: 1,
-//         title: "0-10",
-//         subtitle: null,
-//         icon: person,
-//         iconAlt: "person outline",
-//         selected: false,
-//         cost: 1,
-//       },
-//       {
-//         id: 2,
-//         title: "10-100",
-//         subtitle: null,
-//         icon: persons,
-//         iconAlt: "outline of two people",
-//         selected: false,
-//         cost: 1.25,
-//       },
-//       {
-//         id: 3,
-//         title: "100+",
-//         subtitle: null,
-//         icon: people,
-//         iconAlt: "outline of three people",
-//         selected: false,
-//         cost: 1.5,
-//       },
-//     ],
-//     active: false,
-//   },
-// ];
-
-// const websiteQuestions = [
-//   { ...defaultQuestions[0], active: false },
-//   {
-//     id: 2,
-//     title: "Which type of website are you wanting?",
-//     subtitle: "Select one.",
-//     options: [
-//       {
-//         id: 1,
-//         title: "Basic",
-//         subtitle: "(Informational)",
-//         icon: info,
-//         iconAlt: "person outline",
-//         selected: false,
-//         cost: 100,
-//       },
-//       {
-//         id: 2,
-//         title: "Interactive",
-//         subtitle: "(Users, API's, Messaging)",
-//         icon: customized,
-//         iconAlt: "outline of two people",
-//         selected: false,
-//         cost: 200,
-//       },
-//       {
-//         id: 3,
-//         title: "E-Commerce",
-//         subtitle: "(Sales)",
-//         icon: globe,
-//         iconAlt: "outline of three people",
-//         selected: false,
-//         cost: 250,
-//       },
-//     ],
-//     active: true,
-//   },
-// ];
-
-const questionList = [
+const defaultQuestions = [
   {
     id: 0,
     type: "default",
     title: "Which service are you interested in?",
+    multiSelection: false,
     active: true,
     options: [
       {
@@ -324,12 +73,20 @@ const questionList = [
       },
     ],
   },
+];
+
+const softwareQuestions = [
+  {
+    ...defaultQuestions[0],
+    active: false,
+  },
   {
     id: 1,
     type: "software",
     title: "Which platforms do you need supported?",
     subtitle: "Select all that apply.",
-    active: false,
+    multiSelection: true,
+    active: true,
     options: [
       {
         id: 0,
@@ -365,6 +122,7 @@ const questionList = [
     type: "software",
     title: "Which features do you expect to use?",
     subtitle: "Select all that apply.",
+    multiSelection: true,
     active: false,
     options: [
       {
@@ -401,6 +159,7 @@ const questionList = [
     type: "software",
     title: "Which features do you expect to use?",
     subtitle: "Select all that apply.",
+    multiSelection: true,
     active: false,
     options: [
       {
@@ -437,6 +196,7 @@ const questionList = [
     type: "software",
     title: "What type of custom features do you expect to need?",
     subtitle: "Select one.",
+    multiSelection: false,
     active: false,
     options: [
       {
@@ -473,6 +233,7 @@ const questionList = [
     type: "software",
     title: "How many users do you expect?",
     subtitle: "Select one.",
+    multiSelection: false,
     active: false,
     options: [
       {
@@ -504,11 +265,19 @@ const questionList = [
       },
     ],
   },
+];
+
+const websiteQuestions = [
   {
-    id: 6,
+    ...defaultQuestions[0],
+    active: false,
+  },
+  {
+    id: 1,
     type: "website",
     title: "Which type of website are you wanting?",
     subtitle: "Select one.",
+    multiSelection: false,
     active: false,
     options: [
       {
@@ -572,6 +341,13 @@ const useStyles = makeStyles((theme) => ({
   imageButton: {
     borderRadius: 10,
   },
+  activeImageButton: {
+    borderRadius: 10,
+    backgroundColor: theme.palette.secondary.main,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+  },
   estimateButton: {
     ...theme.typography.estimate,
     borderRadius: "50px",
@@ -587,7 +363,7 @@ const Estimate = () => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const [activeQuestion, setActiveQuestion] = useState(questionList[0]);
+  const [questions, setQuestions] = useState(softwareQuestions);
 
   const defaultOptions = {
     loop: true,
@@ -598,14 +374,70 @@ const Estimate = () => {
     },
   };
 
+  const onImageClick = (questionIndex, optionIndex) => {
+    const newQuestions = cloneDeep(questions);
+    const activeQuestion = newQuestions[questionIndex];
+
+    if (activeQuestion.multiSelection) {
+      const selectedOption = activeQuestion.options[optionIndex];
+      selectedOption.selected = !selectedOption.selected;
+      setQuestions(newQuestions);
+    } else {
+      activeQuestion.options = activeQuestion.options.map((option) => ({
+        ...option,
+        selected: false,
+      }));
+      activeQuestion.options[optionIndex].selected = true;
+      setQuestions(newQuestions);
+    }
+  };
+
   const nextQuestion = () => {
+    const newQuestions = cloneDeep(questions);
+    const activeQuestion = newQuestions.filter(
+      (question) => question.active
+    )[0];
     const activeIndex = activeQuestion.id;
-    setActiveQuestion(questionList[activeIndex + 1]);
+    const nextIndex = activeIndex + 1;
+
+    newQuestions[activeIndex] = { ...activeQuestion, active: false };
+    newQuestions[nextIndex] = { ...newQuestions[nextIndex], active: true };
+
+    setQuestions(newQuestions);
   };
 
   const previousQuestion = () => {
+    const newQuestions = cloneDeep(questions);
+    const activeQuestion = newQuestions.filter(
+      (question) => question.active
+    )[0];
     const activeIndex = activeQuestion.id;
-    if (activeIndex !== 0) setActiveQuestion(questionList[activeIndex - 1]);
+    const nextIndex = activeIndex - 1;
+
+    newQuestions[activeIndex] = { ...activeQuestion, active: false };
+    newQuestions[nextIndex] = { ...newQuestions[nextIndex], active: true };
+
+    setQuestions(newQuestions);
+  };
+
+  const disableNavigationPrevious = () => {
+    const activeQuestion = questions.filter((question) => question.active)[0];
+
+    if (activeQuestion.id === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const disableNavigationNext = () => {
+    const activeQuestion = questions.filter((question) => question.active)[0];
+
+    if (activeQuestion.id === questions.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -631,39 +463,56 @@ const Estimate = () => {
         lg={7}
         className={classes.optionsContainer}
       >
-        <Grid item>
-          <Typography variant="h4" className={classes.optionsHeading}>
-            {activeQuestion.title}
-          </Typography>
-        </Grid>
-        <Grid item container>
-          {activeQuestion.options.map((option, index) => (
-            <Grid
-              key={index}
-              item
-              container
-              direction="column"
-              md
-              alignItems="center"
-              className={classes.optionContainer}
-            >
+        {questions
+          .filter((question) => question.active)
+          .map((question, index) => (
+            <React.Fragment key={index}>
               <Grid item>
-                <Typography variant="h6" className={classes.optionHeading}>
-                  {option.title}
+                <Typography variant="h4" className={classes.optionsHeading}>
+                  {question.title}
                 </Typography>
               </Grid>
-              <Grid item>
-                <IconButton className={classes.imageButton}>
-                  <img
-                    src={option.icon}
-                    alt={option.iconAlt}
-                    className={classes.image}
-                  />
-                </IconButton>
+              <Grid item container>
+                {question.options.map((option, index) => (
+                  <Grid key={index} item md className={classes.optionContainer}>
+                    <IconButton
+                      disableRipple
+                      className={
+                        option.selected
+                          ? classes.activeImageButton
+                          : classes.imageButton
+                      }
+                      onClick={() => onImageClick(question.id, option.id)}
+                    >
+                      <Grid
+                        item
+                        container
+                        direction="column"
+                        alignItems="center"
+                      >
+                        <Grid item>
+                          <Typography
+                            variant="h6"
+                            className={classes.optionHeading}
+                          >
+                            {option.title}
+                          </Typography>
+                        </Grid>
+                        <Grid item>
+                          <img
+                            src={option.icon}
+                            alt={option.iconAlt}
+                            className={classes.image}
+                          />
+                        </Grid>
+                      </Grid>
+                    </IconButton>
+                  </Grid>
+                ))}
               </Grid>
-            </Grid>
+            </React.Fragment>
           ))}
-        </Grid>
+
         <Grid
           item
           container
@@ -672,8 +521,16 @@ const Estimate = () => {
           style={{ marginTop: "4rem" }}
         >
           <Grid item>
-            <IconButton onClick={previousQuestion}>
-              <img src={backArrow} alt="previous question" />
+            <IconButton
+              onClick={previousQuestion}
+              disabled={disableNavigationPrevious()}
+            >
+              <img
+                src={
+                  disableNavigationPrevious() ? backArrowDisabled : backArrow
+                }
+                alt="previous question"
+              />
             </IconButton>
           </Grid>
           <Grid item>
@@ -682,8 +539,16 @@ const Estimate = () => {
             </Button>
           </Grid>
           <Grid item>
-            <IconButton onClick={nextQuestion}>
-              <img src={forwardArrow} alt="next question" />
+            <IconButton
+              onClick={nextQuestion}
+              disabled={disableNavigationNext()}
+            >
+              <img
+                src={
+                  disableNavigationNext() ? forwardArrowDisabled : forwardArrow
+                }
+                alt="next question"
+              />
             </IconButton>
           </Grid>
         </Grid>
