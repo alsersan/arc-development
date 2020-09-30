@@ -39,7 +39,6 @@ import estimateAnimation from "../animations/estimateAnimation/data.json";
 const defaultQuestions = [
   {
     id: 0,
-    type: "default",
     title: "Which service are you interested in?",
     multiSelection: false,
     active: true,
@@ -278,7 +277,7 @@ const websiteQuestions = [
     title: "Which type of website are you wanting?",
     subtitle: "Select one.",
     multiSelection: false,
-    active: false,
+    active: true,
     options: [
       {
         id: 0,
@@ -363,7 +362,7 @@ const Estimate = () => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const [questions, setQuestions] = useState(softwareQuestions);
+  const [questions, setQuestions] = useState(defaultQuestions);
 
   const defaultOptions = {
     loop: true,
@@ -377,18 +376,32 @@ const Estimate = () => {
   const onImageClick = (questionIndex, optionIndex) => {
     const newQuestions = cloneDeep(questions);
     const activeQuestion = newQuestions[questionIndex];
+    const selectedOption = activeQuestion.options[optionIndex];
+    const previouslySelected = activeQuestion.options.filter(
+      (option) => option.selected
+    );
+    console.log(previouslySelected);
 
+    // check if multiple options can be selected at the same time
     if (activeQuestion.multiSelection) {
-      const selectedOption = activeQuestion.options[optionIndex];
       selectedOption.selected = !selectedOption.selected;
-      setQuestions(newQuestions);
     } else {
-      activeQuestion.options = activeQuestion.options.map((option) => ({
-        ...option,
-        selected: false,
-      }));
-      activeQuestion.options[optionIndex].selected = true;
-      setQuestions(newQuestions);
+      if (previouslySelected[0]) {
+        previouslySelected[0].selected = false;
+      }
+      selectedOption.selected = true;
+    }
+
+    // redirect to the right question set when one of the defaultQuestions is selected
+    switch (selectedOption.type) {
+      case "software":
+        setQuestions(softwareQuestions);
+        break;
+      case "website":
+        setQuestions(websiteQuestions);
+        break;
+      default:
+        setQuestions(newQuestions);
     }
   };
 
