@@ -366,6 +366,8 @@ const Estimate = () => {
   const [questions, setQuestions] = useState(defaultQuestions);
   const [openEstimate, setOpenEstimate] = useState(false);
 
+  const [totalCost, setTotalCost] = useState(0);
+
   const defaultOptions = {
     loop: true,
     autoplay: false,
@@ -382,7 +384,6 @@ const Estimate = () => {
     const previouslySelected = activeQuestion.options.filter(
       (option) => option.selected
     );
-    console.log(previouslySelected);
 
     // check if multiple options can be selected at the same time
     if (activeQuestion.multiSelection) {
@@ -453,6 +454,29 @@ const Estimate = () => {
     } else {
       return false;
     }
+  };
+
+  const calculateCost = () => {
+    let cost = 0;
+
+    const selections = questions
+      .map((question) => question.options.filter((option) => option.selected))
+      .filter((question) => question.length > 0);
+
+    selections.map((selection) =>
+      selection.map((option) => (cost += option.cost))
+    );
+
+    // Only runs if the current questions are the websiteQuestions
+    if (questions.length > 2) {
+      const multiplier = questions[5].options.filter(
+        (option) => option.selected
+      )[0].cost;
+      // The multiplier was added to the cost previously. Now it has to be substracted and multiplied
+      cost -= multiplier;
+      cost *= multiplier;
+    }
+    setTotalCost(cost);
   };
 
   return (
@@ -552,7 +576,10 @@ const Estimate = () => {
             <Button
               className={classes.estimateButton}
               variant="contained"
-              onClick={() => setOpenEstimate(true)}
+              onClick={() => {
+                setOpenEstimate(true);
+                calculateCost();
+              }}
             >
               Get Estimate
             </Button>
@@ -575,6 +602,7 @@ const Estimate = () => {
       <EstimateModal
         open={openEstimate}
         onClose={() => setOpenEstimate(false)}
+        cost={totalCost}
       />
     </Grid>
   );

@@ -17,9 +17,15 @@ const useStyles = makeStyles((theme) => ({
   sectionContainer: {
     margin: "1.5rem 0",
   },
+  cost: {
+    color: theme.palette.secondary.main,
+    fontFamily: "Raleway",
+    fontWeight: 700,
+    fontSize: "1.5rem",
+  },
 }));
 
-const EstimateModal = ({ open, onClose }) => {
+const EstimateModal = ({ open, onClose, cost }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
@@ -179,7 +185,8 @@ const EstimateModal = ({ open, onClose }) => {
             </Grid>
             <Grid item className={classes.sectionContainer}>
               <Typography variant="body1" paragraph>
-                We can create this custom digital solution for an estimated
+                We can create this custom digital solution for an estimated{" "}
+                <span className={classes.cost}>${cost.toFixed(2)}</span>
               </Typography>
               <Typography variant="body1">
                 Fill out your name, number and email, place your request and
