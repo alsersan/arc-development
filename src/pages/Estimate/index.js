@@ -9,8 +9,6 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import check from "../../assets/check.svg";
-import send from "../../assets/send.svg";
 import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
 import appDevelopmentIcon from "../../assets/mobileIcon.svg";
 import websiteIcon from "../../assets/websiteIcon.svg";
@@ -91,6 +89,7 @@ const softwareQuestions = [
       {
         id: 0,
         title: "Web Application",
+        type: "platforms",
         subtitle: null,
         icon: websiteIcon,
         iconAlt: "computer outline",
@@ -100,6 +99,7 @@ const softwareQuestions = [
       {
         id: 1,
         title: "iOS Application",
+        type: "platforms",
         subtitle: null,
         icon: iphone,
         iconAlt: "outline of iphone",
@@ -108,6 +108,7 @@ const softwareQuestions = [
       },
       {
         id: 2,
+        type: "platforms",
         title: "Android Application",
         subtitle: null,
         icon: android,
@@ -128,6 +129,7 @@ const softwareQuestions = [
       {
         id: 0,
         title: "Photo/Video",
+        type: "features",
         subtitle: null,
         icon: camera,
         iconAlt: "camera outline",
@@ -137,6 +139,7 @@ const softwareQuestions = [
       {
         id: 1,
         title: "GPS",
+        type: "features",
         subtitle: null,
         icon: gps,
         iconAlt: "gps pin",
@@ -146,6 +149,7 @@ const softwareQuestions = [
       {
         id: 2,
         title: "File Transfer",
+        type: "features",
         subtitle: null,
         icon: upload,
         iconAlt: "outline of cloud with arrow pointing up",
@@ -165,6 +169,7 @@ const softwareQuestions = [
       {
         id: 0,
         title: "Users/Authentication",
+        type: "features",
         subtitle: null,
         icon: users,
         iconAlt: "outline of a person with a plus sign",
@@ -174,6 +179,7 @@ const softwareQuestions = [
       {
         id: 1,
         title: "Biometrics",
+        type: "features",
         subtitle: null,
         icon: biometrics,
         iconAlt: "fingerprint",
@@ -183,6 +189,7 @@ const softwareQuestions = [
       {
         id: 2,
         title: "Push Notifications",
+        type: "features",
         subtitle: null,
         icon: bell,
         iconAlt: "outline of a bell",
@@ -202,6 +209,7 @@ const softwareQuestions = [
       {
         id: 0,
         title: "Low Complexity",
+        type: "customFeatures",
         subtitle: "(Informational)",
         icon: info,
         iconAlt: "'i' inside a circle",
@@ -211,6 +219,7 @@ const softwareQuestions = [
       {
         id: 1,
         title: "Medium Complexity",
+        type: "customFeatures",
         subtitle: "(Interactive, Customizable, Realtime)",
         icon: customized,
         iconAlt: "two toggle switches",
@@ -220,6 +229,7 @@ const softwareQuestions = [
       {
         id: 2,
         title: "High Complexity",
+        type: "customFeatures",
         subtitle: "(Data Modeling and Computation)",
         icon: data,
         iconAlt: "outline of line graph",
@@ -283,6 +293,7 @@ const websiteQuestions = [
       {
         id: 0,
         title: "Basic",
+        type: "category",
         subtitle: "(Informational)",
         icon: info,
         iconAlt: "person outline",
@@ -292,6 +303,7 @@ const websiteQuestions = [
       {
         id: 1,
         title: "Interactive",
+        type: "category",
         subtitle: "(Users, API's, Messaging)",
         icon: customized,
         iconAlt: "outline of two people",
@@ -301,6 +313,7 @@ const websiteQuestions = [
       {
         id: 2,
         title: "E-Commerce",
+        type: "category",
         subtitle: "(Sales)",
         icon: globe,
         iconAlt: "outline of three people",
@@ -368,6 +381,13 @@ const Estimate = () => {
 
   const [totalCost, setTotalCost] = useState(0);
 
+  const [service, setService] = useState("");
+  const [platforms, setPlatforms] = useState([]);
+  const [features, setFeatures] = useState([]);
+  const [customFeatures, setCustomFeatures] = useState([]);
+  const [users, setUsers] = useState("");
+  const [category, setCategory] = useState("");
+
   const defaultOptions = {
     loop: true,
     autoplay: false,
@@ -399,13 +419,58 @@ const Estimate = () => {
     switch (selectedOption.type) {
       case "software":
         setQuestions(softwareQuestions);
+        setService(selectedOption.title);
         break;
       case "website":
         setQuestions(websiteQuestions);
+        setService(selectedOption.title);
         break;
       default:
         setQuestions(newQuestions);
     }
+  };
+
+  const saveSelectedOptions = () => {
+    // array with all selected options. Eliminated any empty arrays resulting from non-selected options
+    const selections = questions
+      .map((question) => question.options.filter((option) => option.selected))
+      .filter((question) => question.length > 0);
+
+    let selectedPlatforms = [];
+    selections.map((selection) =>
+      selection
+        .filter((selection) => selection.type === "platforms")
+        .map((question) => selectedPlatforms.push(question.title))
+    );
+
+    let selectedFeatures = [];
+    selections.map((selection) =>
+      selection
+        .filter((selection) => selection.type === "features")
+        .map((question) => selectedFeatures.push(question.title))
+    );
+
+    let selectedCustomFeatures = [];
+    selections.map((selection) =>
+      selection
+        .filter((selection) => selection.type === "customFeatures")
+        .map((question) => selectedCustomFeatures.push(question.title))
+    );
+
+    let selectedCategory = [];
+    selections.map((selection) =>
+      selection
+        .filter((selection) => selection.type === "category")
+        .map((question) => selectedCategory.push(question.title))
+    );
+
+    setPlatforms(selectedPlatforms);
+    setFeatures(selectedFeatures);
+    setCustomFeatures(selectedCustomFeatures);
+    setCategory(selectedCategory);
+
+    console.log(selections);
+    console.log(selectedCategory);
   };
 
   const nextQuestion = () => {
@@ -471,10 +536,14 @@ const Estimate = () => {
     if (questions.length > 2) {
       const multiplier = questions[5].options.filter(
         (option) => option.selected
-      )[0].cost;
+      )[0];
+
       // The multiplier was added to the cost previously. Now it has to be substracted and multiplied
-      cost -= multiplier;
-      cost *= multiplier;
+      cost -= multiplier.cost;
+      cost *= multiplier.cost;
+
+      // get the number of users to show it in the EstimateModal
+      setUsers(multiplier.title);
     }
     setTotalCost(cost);
   };
@@ -579,6 +648,7 @@ const Estimate = () => {
               onClick={() => {
                 setOpenEstimate(true);
                 calculateCost();
+                saveSelectedOptions();
               }}
             >
               Get Estimate
@@ -603,6 +673,12 @@ const Estimate = () => {
         open={openEstimate}
         onClose={() => setOpenEstimate(false)}
         cost={totalCost}
+        service={service}
+        platforms={platforms}
+        features={features}
+        customFeatures={customFeatures}
+        users={users}
+        category={category}
       />
     </Grid>
   );
