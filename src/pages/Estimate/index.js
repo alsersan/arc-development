@@ -80,7 +80,6 @@ const softwareQuestions = [
   },
   {
     id: 1,
-    type: "software",
     title: "Which platforms do you need supported?",
     subtitle: "Select all that apply.",
     multiSelection: true,
@@ -120,7 +119,6 @@ const softwareQuestions = [
   },
   {
     id: 2,
-    type: "software",
     title: "Which features do you expect to use?",
     subtitle: "Select all that apply.",
     multiSelection: true,
@@ -160,7 +158,6 @@ const softwareQuestions = [
   },
   {
     id: 3,
-    type: "software",
     title: "Which features do you expect to use?",
     subtitle: "Select all that apply.",
     multiSelection: true,
@@ -200,7 +197,6 @@ const softwareQuestions = [
   },
   {
     id: 4,
-    type: "software",
     title: "What type of custom features do you expect to need?",
     subtitle: "Select one.",
     multiSelection: false,
@@ -210,7 +206,7 @@ const softwareQuestions = [
         id: 0,
         title: "Low Complexity",
         type: "customFeatures",
-        subtitle: "(Informational)",
+        subtitle: "Informational",
         icon: info,
         iconAlt: "'i' inside a circle",
         selected: false,
@@ -220,7 +216,7 @@ const softwareQuestions = [
         id: 1,
         title: "Medium Complexity",
         type: "customFeatures",
-        subtitle: "(Interactive, Customizable, Realtime)",
+        subtitle: "Interactive, Customizable, Realtime",
         icon: customized,
         iconAlt: "two toggle switches",
         selected: false,
@@ -230,7 +226,7 @@ const softwareQuestions = [
         id: 2,
         title: "High Complexity",
         type: "customFeatures",
-        subtitle: "(Data Modeling and Computation)",
+        subtitle: "Data Modeling and Computation",
         icon: data,
         iconAlt: "outline of line graph",
         selected: false,
@@ -240,7 +236,6 @@ const softwareQuestions = [
   },
   {
     id: 5,
-    type: "software",
     title: "How many users do you expect?",
     subtitle: "Select one.",
     multiSelection: false,
@@ -284,7 +279,6 @@ const websiteQuestions = [
   },
   {
     id: 1,
-    type: "website",
     title: "Which type of website are you wanting?",
     subtitle: "Select one.",
     multiSelection: false,
@@ -294,7 +288,7 @@ const websiteQuestions = [
         id: 0,
         title: "Basic",
         type: "category",
-        subtitle: "(Informational)",
+        subtitle: "Informational",
         icon: info,
         iconAlt: "person outline",
         selected: false,
@@ -304,7 +298,7 @@ const websiteQuestions = [
         id: 1,
         title: "Interactive",
         type: "category",
-        subtitle: "(Users, API's, Messaging)",
+        subtitle: "Users, API's, Messaging",
         icon: customized,
         iconAlt: "outline of two people",
         selected: false,
@@ -314,7 +308,7 @@ const websiteQuestions = [
         id: 2,
         title: "E-Commerce",
         type: "category",
-        subtitle: "(Sales)",
+        subtitle: "Sales",
         icon: globe,
         iconAlt: "outline of three people",
         selected: false,
@@ -338,7 +332,6 @@ const useStyles = makeStyles((theme) => ({
   },
   optionsHeading: {
     margin: "4rem 0",
-    fontWeight: 700,
   },
   optionContainer: {
     padding: " 0.5rem",
@@ -346,7 +339,6 @@ const useStyles = makeStyles((theme) => ({
   optionHeading: {
     maxWidth: "13rem",
     marginBottom: "1rem",
-    fontWeight: 600,
   },
   image: {
     height: "9rem",
@@ -468,9 +460,6 @@ const Estimate = () => {
     setFeatures(selectedFeatures);
     setCustomFeatures(selectedCustomFeatures);
     setCategory(selectedCategory);
-
-    console.log(selections);
-    console.log(selectedCategory);
   };
 
   const nextQuestion = () => {
@@ -574,11 +563,18 @@ const Estimate = () => {
         {questions
           .filter((question) => question.active)
           .map((question, index) => (
-            <React.Fragment key={index}>
-              <Grid item>
-                <Typography variant="h4" className={classes.optionsHeading}>
+            <Grid
+              item
+              container
+              direction="column"
+              style={{ height: "31rem" }}
+              key={index}
+            >
+              <Grid item className={classes.optionsHeading}>
+                <Typography variant="h4" gutterBottom>
                   {question.title}
                 </Typography>
+                <Typography variant="h6">{question.subtitle}</Typography>
               </Grid>
               <Grid item container>
                 {question.options.map((option, index) => (
@@ -598,12 +594,12 @@ const Estimate = () => {
                         direction="column"
                         alignItems="center"
                       >
-                        <Grid item>
-                          <Typography
-                            variant="h6"
-                            className={classes.optionHeading}
-                          >
+                        <Grid item className={classes.optionHeading}>
+                          <Typography variant="h6" style={{ fontWeight: 600 }}>
                             {option.title}
+                          </Typography>
+                          <Typography variant="body1">
+                            {option.subtitle}
                           </Typography>
                         </Grid>
                         <Grid item>
@@ -618,7 +614,7 @@ const Estimate = () => {
                   </Grid>
                 ))}
               </Grid>
-            </React.Fragment>
+            </Grid>
           ))}
 
         <Grid
