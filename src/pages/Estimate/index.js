@@ -700,6 +700,8 @@ const Estimate = () => {
           </Grid>
         </Grid>
       </Grid>
+
+      {/*--Estimate Modal--*/}
       <EstimateModal
         open={openEstimate}
         onClose={() => setOpenEstimate(false)}

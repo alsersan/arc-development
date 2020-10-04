@@ -13,6 +13,7 @@ import SendIcon from "@material-ui/icons/Send";
 import CloseIcon from "@material-ui/icons/Close";
 
 import check from "../../../assets/check.svg";
+import ModalConfirmation from "../../../components/ui/ModalConfirmation";
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -92,6 +93,9 @@ const EstimateModal = ({
   const [message, setMessage] = useState("");
   const [messageHelper, setMessageHelper] = useState("");
 
+  const [openConfirm, setOpenConfirm] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const checkName = (input) => {
     if (input === "") {
       setNameHelper("This field is required");
@@ -138,18 +142,18 @@ const EstimateModal = ({
     checkPhone(phone);
     checkMessage(message);
 
-    // if (
-    //   name &&
-    //   email &&
-    //   phone &&
-    //   message &&
-    //   !nameHelper &&
-    //   !emailHelper &&
-    //   !phoneHelper &&
-    //   !messageHelper
-    // ) {
-    //   setOpen(true);
-    // }
+    if (
+      name &&
+      email &&
+      phone &&
+      message &&
+      !nameHelper &&
+      !emailHelper &&
+      !phoneHelper &&
+      !messageHelper
+    ) {
+      setOpenConfirm(true);
+    }
   };
 
   const platformsMessage = () => {
@@ -223,8 +227,8 @@ const EstimateModal = ({
     <Dialog
       open={open}
       onClose={onClose}
-      // disableBackdropClick
-      // disableEscapeKeyDown
+      disableBackdropClick
+      disableEscapeKeyDown
       maxWidth="md"
       fullScreen={matchesXS}
       // more than the header but less than the ModalConfirmation
@@ -370,7 +374,11 @@ const EstimateModal = ({
             )}
 
             <Grid item>
-              <Button variant="contained" className={classes.estimateButton}>
+              <Button
+                variant="contained"
+                className={classes.estimateButton}
+                onClick={onSubmitClick}
+              >
                 Place request
                 <SendIcon className={classes.sendIcon} />
               </Button>
@@ -378,6 +386,17 @@ const EstimateModal = ({
           </Grid>
         </Grid>
       </DialogContent>
+      {/*--Confirmation Modal--*/}
+      <ModalConfirmation
+        name={name}
+        email={email}
+        phone={phone}
+        message={message}
+        loading={loading}
+        open={openConfirm}
+        onClose={() => setOpenConfirm(false)}
+        // onClick={onConfirmClick}
+      />
     </Dialog>
   );
 };
