@@ -9,7 +9,6 @@ import FooterAdornment from "../../assets/Footer Adornment.svg";
 import facebook from "../../assets/facebook.svg";
 import twitter from "../../assets/twitter.svg";
 import instagram from "../../assets/instagram.svg";
-import { useTabContext } from "../../contexts/selectedTabContext";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -62,8 +61,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Footer = () => {
-  const { setTabIndex, setMenuIndex } = useTabContext();
-
   const classes = useStyles();
 
   return (
@@ -72,13 +69,7 @@ const Footer = () => {
         <Grid container justify="center" className={classes.mainContainer}>
           <Grid item className={classes.griditem}>
             <Grid container direction="column">
-              <Grid
-                item
-                component={Link}
-                to="/"
-                className={classes.link}
-                onClick={() => setTabIndex(0)}
-              >
+              <Grid item component={Link} to="/" className={classes.link}>
                 Home
               </Grid>
             </Grid>
@@ -90,10 +81,6 @@ const Footer = () => {
                 component={Link}
                 to="/services"
                 className={classes.link}
-                onClick={() => {
-                  setTabIndex(1);
-                  setMenuIndex(0);
-                }}
               >
                 Services
               </Grid>
@@ -102,10 +89,6 @@ const Footer = () => {
                 component={Link}
                 to="/customsoftware"
                 className={classes.link}
-                onClick={() => {
-                  setTabIndex(1);
-                  setMenuIndex(1);
-                }}
               >
                 Custom Software Development
               </Grid>
@@ -114,10 +97,6 @@ const Footer = () => {
                 component={Link}
                 to="/mobileapps"
                 className={classes.link}
-                onClick={() => {
-                  setTabIndex(1);
-                  setMenuIndex(2);
-                }}
               >
                 iOS/Android App Development
               </Grid>
@@ -126,10 +105,6 @@ const Footer = () => {
                 component={Link}
                 to="/websites"
                 className={classes.link}
-                onClick={() => {
-                  setTabIndex(1);
-                  setMenuIndex(3);
-                }}
               >
                 Website Development
               </Grid>
@@ -142,7 +117,6 @@ const Footer = () => {
                 component={Link}
                 to="/revolution"
                 className={classes.link}
-                onClick={() => setTabIndex(2)}
               >
                 The Revolution
               </Grid>
@@ -151,7 +125,6 @@ const Footer = () => {
                 component={Link}
                 to="/revolution"
                 className={classes.link}
-                onClick={() => setTabIndex(2)}
               >
                 Vision
               </Grid>
@@ -160,7 +133,6 @@ const Footer = () => {
                 component={Link}
                 to="/revolution"
                 className={classes.link}
-                onClick={() => setTabIndex(2)}
               >
                 Technology
               </Grid>
@@ -169,7 +141,6 @@ const Footer = () => {
                 component={Link}
                 to="/revolution"
                 className={classes.link}
-                onClick={() => setTabIndex(2)}
               >
                 Process
               </Grid>
@@ -177,31 +148,13 @@ const Footer = () => {
           </Grid>
           <Grid item className={classes.griditem}>
             <Grid container direction="column" spacing={2}>
-              <Grid
-                item
-                component={Link}
-                to="/about"
-                className={classes.link}
-                onClick={() => setTabIndex(3)}
-              >
+              <Grid item component={Link} to="/about" className={classes.link}>
                 About Us
               </Grid>
-              <Grid
-                item
-                component={Link}
-                to="/about"
-                className={classes.link}
-                onClick={() => setTabIndex(3)}
-              >
+              <Grid item component={Link} to="/about" className={classes.link}>
                 History
               </Grid>
-              <Grid
-                item
-                component={Link}
-                to="/about"
-                className={classes.link}
-                onClick={() => setTabIndex(3)}
-              >
+              <Grid item component={Link} to="/about" className={classes.link}>
                 Team
               </Grid>
             </Grid>
@@ -213,7 +166,6 @@ const Footer = () => {
                 component={Link}
                 to="/contact"
                 className={classes.link}
-                onClick={() => setTabIndex(4)}
               >
                 Contact Us
               </Grid>

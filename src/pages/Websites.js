@@ -8,7 +8,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 
-import { useTabContext } from "../contexts/selectedTabContext";
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
 import CallToAction from "../components/ui/CallToAction";
@@ -74,8 +73,6 @@ const Websites = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { setMenuIndex } = useTabContext();
-
   return (
     <Grid container direction="column">
       <Grid item container direction="column" className={classes.mainContainer}>
@@ -90,11 +87,7 @@ const Websites = () => {
         >
           <Hidden mdDown>
             <Grid item>
-              <IconButton
-                component={Link}
-                to="/mobileapps"
-                onClick={() => setMenuIndex(2)}
-              >
+              <IconButton component={Link} to="/mobileapps">
                 <img src={backArrow} alt="to iOS/Android App Development" />
               </IconButton>
             </Grid>
@@ -116,11 +109,7 @@ const Websites = () => {
           </Grid>
           <Hidden mdDown>
             <Grid item>
-              <IconButton
-                component={Link}
-                to="/customsoftware"
-                onClick={() => setMenuIndex(1)}
-              >
+              <IconButton component={Link} to="/customsoftware">
                 <img src={forwardArrow} alt="to Custom Software Development" />
               </IconButton>
             </Grid>

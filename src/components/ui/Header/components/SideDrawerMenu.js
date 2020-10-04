@@ -66,7 +66,7 @@ const SideDrawerMenu = ({ marginClassName }) => {
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const { openDrawer, setOpenDrawer } = useDrawerContext();
-  const { tabIndex, setTabIndex } = useTabContext();
+  const { tabIndex } = useTabContext();
 
   return (
     <React.Fragment>
@@ -99,7 +99,6 @@ const SideDrawerMenu = ({ marginClassName }) => {
               to={option.link}
               onClick={() => {
                 setOpenDrawer(false);
-                setTabIndex(index);
               }}
               classes={{ selected: classes.drawerItemSelected }}
               selected={tabIndex === index}
@@ -117,7 +116,6 @@ const SideDrawerMenu = ({ marginClassName }) => {
             to="/estimate"
             onClick={() => {
               setOpenDrawer(false);
-              setTabIndex(5);
             }}
             classes={{
               root: classes.drawerItemEstimate,

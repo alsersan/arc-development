@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HeaderTabs = () => {
-  const { tabIndex, setTabIndex, menuIndex, setMenuIndex } = useTabContext();
+  const { tabIndex, menuIndex } = useTabContext();
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -59,11 +59,9 @@ const HeaderTabs = () => {
     setOpenMenu(true);
   };
 
-  const handleMenuitemClick = (e, index) => {
+  const handleMenuitemClick = () => {
     setAnchorEl(null);
     setOpenMenu(false);
-    setMenuIndex(index);
-    setTabIndex(1);
   };
 
   const handleMenuClose = () => {
@@ -91,7 +89,6 @@ const HeaderTabs = () => {
         className={classes.tabContainer}
         classes={{ indicator: classes.indicator }}
         value={tabIndex}
-        onChange={(e, newIndex) => setTabIndex(newIndex)}
       >
         {routes.map((tab) => (
           <Tab
@@ -125,7 +122,7 @@ const HeaderTabs = () => {
         {menuOptions.map((option, index) => (
           <MenuItem
             key={option.name}
-            onClick={(e) => handleMenuitemClick(e, index)}
+            onClick={handleMenuitemClick}
             component={Link}
             to={option.link}
             selected={index === menuIndex && tabIndex === 1}

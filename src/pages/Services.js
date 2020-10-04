@@ -10,8 +10,6 @@ import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import appDevelopmentIcon from "../assets/mobileIcon.svg";
 import websiteIcon from "../assets/websiteIcon.svg";
 
-import { useTabContext } from "../contexts/selectedTabContext";
-
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     padding: "4rem 4rem",
@@ -62,8 +60,6 @@ const Services = () => {
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { setTabIndex, setMenuIndex } = useTabContext();
-
   return (
     <Grid container className={classes.mainContainer} direction="column">
       <Grid item>
@@ -100,10 +96,6 @@ const Services = () => {
               <span className={classes.specialText}>celebration</span>.
             </Typography>
             <LearnMoreButton
-              onClick={() => {
-                setTabIndex(1);
-                setMenuIndex(1);
-              }}
               color={theme.palette.primary.main}
               type="small"
               route="/customsoftware"
@@ -140,10 +132,6 @@ const Services = () => {
               {matchesSM ? null : <br />} with either mobile platform.
             </Typography>
             <LearnMoreButton
-              onClick={() => {
-                setTabIndex(1);
-                setMenuIndex(2);
-              }}
               color={theme.palette.primary.main}
               type="small"
               route="/mobileapps"
@@ -174,10 +162,6 @@ const Services = () => {
               Optimized for search engines, built for speed.
             </Typography>
             <LearnMoreButton
-              onClick={() => {
-                setTabIndex(1);
-                setMenuIndex(3);
-              }}
               color={theme.palette.primary.main}
               type="small"
               route="websites"

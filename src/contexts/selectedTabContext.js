@@ -5,17 +5,22 @@ const SelectedTabContext = React.createContext();
 const SelectedTabProvider = ({ children }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [menuIndex, setMenuIndex] = useState(0);
+  const [route, setRoute] = useState(window.location.hash.substring(1));
+
+  const updateRoute = () => {
+    setRoute(window.location.hash.substring(1));
+  };
 
   useEffect(() => {
-    console.log(window.location.hash.substring(1));
-    switch (window.location.hash.substring(1)) {
+    window.addEventListener("hashchange", updateRoute);
+
+    switch (route) {
       case "/":
         setTabIndex(0);
         break;
       case "/services":
         setTabIndex(1);
         setMenuIndex(0);
-        console.log("serVCIES");
         break;
       case "/customsoftware":
         setTabIndex(1);
@@ -42,18 +47,16 @@ const SelectedTabProvider = ({ children }) => {
         setTabIndex(5);
         break;
       default:
-        console.log("DEFAULT");
         break;
     }
-  }, []);
+    return () => window.removeEventListener("hashchange", updateRoute);
+  }, [route]);
 
   return (
     <SelectedTabContext.Provider
       value={{ tabIndex, setTabIndex, menuIndex, setMenuIndex }}
     >
       {children}
-      {console.log(`tabIndexContext: ${tabIndex}`)}
-      {console.log(`menuIndexContext: ${menuIndex}`)}
     </SelectedTabContext.Provider>
   );
 };

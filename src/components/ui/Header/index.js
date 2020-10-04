@@ -12,7 +12,6 @@ import { useTheme } from "@material-ui/core/styles";
 import SideDrawerMenu from "./components/SideDrawerMenu";
 import HeaderTabs from "./components/HeaderTabs";
 import CompanyLogo from "./components/CompanyLogo";
-import { useTabContext } from "../../../contexts/selectedTabContext";
 import { useDrawerContext } from "../../../contexts/openDrawerContext";
 
 function ElevationScroll(props) {
@@ -63,16 +62,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
-  const { tabIndex, setTabIndex } = useTabContext();
-
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <React.Fragment>
-      {console.log("renderHeader")}
-      {console.log("tabIndex: " + tabIndex)}
       <ElevationScroll>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
           <Toolbar disableGutters>
@@ -81,7 +76,6 @@ const Header = () => {
               component={Link}
               to="/"
               className={classes.logoContainer}
-              onClick={() => setTabIndex(0)}
             >
               <CompanyLogo className={classes.logo} />
             </Button>

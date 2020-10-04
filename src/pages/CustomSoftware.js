@@ -9,7 +9,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import IconButton from "@material-ui/core/IconButton";
 import Hidden from "@material-ui/core/Hidden";
 
-import { useTabContext } from "../contexts/selectedTabContext";
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
 import lightbulb from "../assets/bulb.svg";
@@ -122,8 +121,6 @@ const CustomSoftware = () => {
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { setMenuIndex } = useTabContext();
-
   const documentsOptions = {
     loop: true,
     autoplay: true,
@@ -193,11 +190,7 @@ const CustomSoftware = () => {
         >
           <Hidden mdDown>
             <Grid item>
-              <IconButton
-                component={Link}
-                to="/websites"
-                onClick={() => setMenuIndex(3)}
-              >
+              <IconButton component={Link} to="/websites">
                 <img src={backArrow} alt="to Website Development" />
               </IconButton>
             </Grid>
@@ -230,11 +223,7 @@ const CustomSoftware = () => {
           </Grid>
           <Hidden mdDown>
             <Grid item>
-              <IconButton
-                component={Link}
-                to="/mobileApps"
-                onClick={() => setMenuIndex(2)}
-              >
+              <IconButton component={Link} to="/mobileApps">
                 <img src={forwardArrow} alt="to iOS/Android App Development" />
               </IconButton>
             </Grid>
