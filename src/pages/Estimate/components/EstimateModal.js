@@ -8,14 +8,32 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
 import SendIcon from "@material-ui/icons/Send";
+import CloseIcon from "@material-ui/icons/Close";
 
 import check from "../../../assets/check.svg";
 
 const useStyles = makeStyles((theme) => ({
+  closeButton: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+    // fontSize: "2rem",
+    // cursor: "pointer",
+  },
   modalHeader: {
     padding: "1rem 1.5rem",
     textAlign: "center",
+  },
+  columnContainer: {
+    margin: "0 3rem",
+    [theme.breakpoints.down("md")]: {
+      margin: "0",
+    },
   },
   sectionContainer: {
     margin: "1.5rem 0",
@@ -28,11 +46,15 @@ const useStyles = makeStyles((theme) => ({
   },
   estimateButton: {
     ...theme.typography.estimate,
+    marginTop: "5rem",
     borderRadius: "50px",
     height: "45px",
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
+    },
+    [theme.breakpoints.down("md")]: {
+      margin: "2rem 0",
     },
   },
   sendIcon: {
@@ -56,6 +78,7 @@ const EstimateModal = ({
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const [name, setName] = useState("");
   const [nameHelper, setNameHelper] = useState("");
@@ -142,7 +165,7 @@ const EstimateModal = ({
         : //otherwise, if only one platform is selected which isn't web application...
         platforms.length === 1
         ? //then finish the sentence here
-          `an ${platforms[0]}`
+          `an ${platforms[0]}.`
         : //otherwise, if other two options are selected...
         platforms.length === 2
         ? //then finish the sentence here
@@ -187,7 +210,7 @@ const EstimateModal = ({
   };
 
   const restMessage = () => {
-    return `The custom features will be of ${customFeatures}, and the project will be used by ${users} users`;
+    return `The custom features will be of ${customFeatures}, and the project will be used by ${users} users.`;
   };
 
   const websiteMessage = () => {
@@ -200,15 +223,33 @@ const EstimateModal = ({
     <Dialog
       open={open}
       onClose={onClose}
-      disableBackdropClick
-      disableEscapeKeyDown
+      // disableBackdropClick
+      // disableEscapeKeyDown
+      maxWidth="md"
+      fullScreen={matchesXS}
+      // more than the header but less than the ModalConfirmation
+      style={{ zIndex: 1900 }}
     >
+      <IconButton
+        disableRipple
+        className={classes.closeButton}
+        onClick={onClose}
+      >
+        <CloseIcon color="primary" style={{ fontSize: "1.5rem" }} />
+      </IconButton>
+
       <Typography variant="h4" className={classes.modalHeader}>
         Estimate
       </Typography>
-      <DialogContent>
+      <DialogContent dividers>
         <Grid container>
-          <Grid item container md direction="column">
+          <Grid
+            item
+            container
+            md
+            direction="column"
+            className={classes.columnContainer}
+          >
             <Grid item className={classes.sectionContainer}>
               <TextField
                 label="Name"
@@ -289,24 +330,38 @@ const EstimateModal = ({
               </Typography>
             </Grid>
           </Grid>
-          <Grid item container md direction="column">
+          <Grid
+            item
+            container
+            md
+            alignItems="center"
+            direction="column"
+            className={classes.columnContainer}
+            style={{ marginTop: "1.5rem" }}
+          >
             {service === "Website Development" ? (
               <Grid item container alignItems="center">
-                <Grid item>
+                <Grid item xs={2}>
                   <img src={check} alt="chekmark" />
                 </Grid>
-                <Grid item>
+                <Grid item xs={10}>
                   <Typography variant="body1">{websiteMessage()}</Typography>
                 </Grid>
               </Grid>
             ) : (
               [platformsMessage(), featuresMessage(), restMessage()].map(
                 (message, index) => (
-                  <Grid item container alignItems="center" key={index}>
-                    <Grid item>
+                  <Grid
+                    item
+                    container
+                    alignItems="center"
+                    key={index}
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    <Grid item xs={2}>
                       <img src={check} alt="chekmark" />
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={10}>
                       <Typography variant="body1">{message}</Typography>
                     </Grid>
                   </Grid>

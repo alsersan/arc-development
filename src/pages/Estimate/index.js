@@ -320,21 +320,52 @@ const websiteQuestions = [
 
 const useStyles = makeStyles((theme) => ({
   sectionContainer: {
-    padding: "3rem 1rem 4rem",
+    padding: "3rem 1rem 6rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "2rem 1rem 2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "2rem 1rem 0",
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: "2rem 0.5rem 0",
+    },
   },
   animation: {
     maxWidth: "50rem",
     marginTop: "4rem",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "40rem",
+      marginTop: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "30rem",
+      marginTop: 0,
+    },
   },
   optionsContainer: {
-    padding: "3rem 1rem 4rem",
+    padding: "3rem 1rem 6rem",
     textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      padding: "2rem 1rem 5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: "2rem 0.5rem 5rem",
+    },
   },
   optionsHeading: {
-    margin: "4rem 0",
+    margin: "4rem 0 3rem",
+    // minHeight so that it has space to rearrange at smaller screen sizes
+    minHeight: "5rem",
+    [theme.breakpoints.down("md")]: {
+      margin: "0 0 2rem",
+    },
   },
   optionContainer: {
     padding: " 0.5rem",
+  },
+  optionWrapper: {
+    height: "15.5rem",
   },
   optionHeading: {
     maxWidth: "13rem",
@@ -345,12 +376,18 @@ const useStyles = makeStyles((theme) => ({
   },
   imageButton: {
     borderRadius: 10,
+    [theme.breakpoints.down("sm")]: {
+      width: "15rem",
+    },
   },
   activeImageButton: {
     borderRadius: 10,
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "15rem",
     },
   },
   estimateButton: {
@@ -367,6 +404,8 @@ const useStyles = makeStyles((theme) => ({
 const Estimate = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [questions, setQuestions] = useState(defaultQuestions);
   const [openEstimate, setOpenEstimate] = useState(false);
@@ -538,15 +577,16 @@ const Estimate = () => {
   };
 
   return (
-    <Grid container>
+    <Grid container direction={matchesMD ? "column" : "row"}>
       <Grid
         item
         container
         direction="column"
+        alignItems={matchesMD ? "center" : undefined}
         lg={5}
         className={classes.sectionContainer}
       >
-        <Grid item>
+        <Grid item container>
           <Typography variant="h2">Estimate</Typography>
         </Grid>
         <Grid item className={classes.animation}>
@@ -563,20 +603,14 @@ const Estimate = () => {
         {questions
           .filter((question) => question.active)
           .map((question, index) => (
-            <Grid
-              item
-              container
-              direction="column"
-              style={{ height: "31rem" }}
-              key={index}
-            >
+            <Grid item container direction="column" key={index}>
               <Grid item className={classes.optionsHeading}>
                 <Typography variant="h4" gutterBottom>
                   {question.title}
                 </Typography>
                 <Typography variant="h6">{question.subtitle}</Typography>
               </Grid>
-              <Grid item container>
+              <Grid item container direction={matchesSM ? "column" : "row"}>
                 {question.options.map((option, index) => (
                   <Grid key={index} item md className={classes.optionContainer}>
                     <IconButton
@@ -593,6 +627,7 @@ const Estimate = () => {
                         container
                         direction="column"
                         alignItems="center"
+                        className={classes.optionWrapper}
                       >
                         <Grid item className={classes.optionHeading}>
                           <Typography variant="h6" style={{ fontWeight: 600 }}>
