@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/arc-development/static/js/main.45f82ee8.chunk.js",
-    "main.js.map": "/arc-development/static/js/main.45f82ee8.chunk.js.map",
+    "main.js": "/arc-development/static/js/main.cec7dc46.chunk.js",
+    "main.js.map": "/arc-development/static/js/main.cec7dc46.chunk.js.map",
     "runtime-main.js": "/arc-development/static/js/runtime-main.bd6f039d.js",
     "runtime-main.js.map": "/arc-development/static/js/runtime-main.bd6f039d.js.map",
-    "static/js/2.b2b265aa.chunk.js": "/arc-development/static/js/2.b2b265aa.chunk.js",
-    "static/js/2.b2b265aa.chunk.js.map": "/arc-development/static/js/2.b2b265aa.chunk.js.map",
+    "static/js/2.298681ad.chunk.js": "/arc-development/static/js/2.298681ad.chunk.js",
+    "static/js/2.298681ad.chunk.js.map": "/arc-development/static/js/2.298681ad.chunk.js.map",
     "index.html": "/arc-development/index.html",
-    "precache-manifest.e787e45561640fe1abbf8a23fd13d789.js": "/arc-development/precache-manifest.e787e45561640fe1abbf8a23fd13d789.js",
+    "precache-manifest.b8a52eccf93647a3b0382200b0c30666.js": "/arc-development/precache-manifest.b8a52eccf93647a3b0382200b0c30666.js",
     "service-worker.js": "/arc-development/service-worker.js",
-    "static/js/2.b2b265aa.chunk.js.LICENSE.txt": "/arc-development/static/js/2.b2b265aa.chunk.js.LICENSE.txt",
+    "static/js/2.298681ad.chunk.js.LICENSE.txt": "/arc-development/static/js/2.298681ad.chunk.js.LICENSE.txt",
     "static/media/Custom Software Icon.svg": "/arc-development/static/media/Custom Software Icon.350387f5.svg",
     "static/media/Footer Adornment.svg": "/arc-development/static/media/Footer Adornment.e227d87b.svg",
     "static/media/analytics.svg": "/arc-development/static/media/analytics.19779204.svg",
@@ -58,7 +58,6 @@
     "static/media/repeatingBackground.svg": "/arc-development/static/media/repeatingBackground.c608f23f.svg",
     "static/media/reviewIcon.svg": "/arc-development/static/media/reviewIcon.6f5512eb.svg",
     "static/media/root.svg": "/arc-development/static/media/root.3ad96c4b.svg",
-    "static/media/send.svg": "/arc-development/static/media/send.cdaac4cc.svg",
     "static/media/seo.svg": "/arc-development/static/media/seo.72de4d77.svg",
     "static/media/stopwatch.svg": "/arc-development/static/media/stopwatch.9ce632eb.svg",
     "static/media/swissKnife.svg": "/arc-development/static/media/swissKnife.18d93704.svg",
@@ -71,7 +70,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.bd6f039d.js",
-    "static/js/2.b2b265aa.chunk.js",
-    "static/js/main.45f82ee8.chunk.js"
+    "static/js/2.298681ad.chunk.js",
+    "static/js/main.cec7dc46.chunk.js"
   ]
 }
