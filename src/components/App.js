@@ -14,6 +14,7 @@ import Revolution from "../pages/Revolution";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Estimate from "../pages/Estimate";
+import ScrollToTop from "./ScrollToTop";
 import { SelectedTabProvider } from "../contexts/selectedTabContext";
 import { OpenDrawerProvider } from "../contexts/openDrawerContext";
 
@@ -22,6 +23,7 @@ const App = () => {
     <div>
       <ThemeProvider theme={theme}>
         <HashRouter basename="/">
+          <ScrollToTop />
           <SelectedTabProvider>
             <OpenDrawerProvider>
               <Header />
