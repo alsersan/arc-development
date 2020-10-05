@@ -196,7 +196,7 @@ const EstimateModal = ({
         setSnackbar({
           open: true,
           type: "success",
-          message: "message sent successfully",
+          message: "Message sent successfully",
         });
         console.log(res);
       })
