@@ -705,7 +705,7 @@ const Estimate = () => {
       <EstimateModal
         open={openEstimate}
         onClose={() => setOpenEstimate(false)}
-        cost={totalCost}
+        totalCost={totalCost}
         service={service}
         platforms={platforms}
         features={features}

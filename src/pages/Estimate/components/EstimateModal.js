@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -23,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "transparent",
     },
-    // fontSize: "2rem",
-    // cursor: "pointer",
   },
   modalHeader: {
     padding: "1rem 1.5rem",
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   sectionContainer: {
     margin: "1.5rem 0",
   },
-  cost: {
+  totalCost: {
     color: theme.palette.secondary.main,
     fontFamily: "Raleway",
     fontWeight: 700,
@@ -68,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 const EstimateModal = ({
   open,
   onClose,
-  cost,
+  totalCost,
   service,
   platforms,
   features,
@@ -156,6 +155,53 @@ const EstimateModal = ({
     }
   };
 
+  const onConfirmClick = () => {
+    setLoading(true);
+    axios
+      .get(
+        "https://us-central1-arc-development-b994f.cloudfunctions.net/sendMail",
+        {
+          params: {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+            totalCost: totalCost,
+            service: service,
+            platforms: platforms,
+            features: features,
+            customFeatures: customFeatures,
+            users: users,
+            category: category,
+          },
+        }
+      )
+      .then((res) => {
+        // setOpen(false);
+        setLoading(false);
+        // setName("");
+        // setEmail("");
+        // setPhone("");
+        // setMessage("");
+        // setSnackbar({
+        //   open: true,
+        //   type: "success",
+        //   message: "message sent successfully",
+        // });
+        console.log(res);
+      })
+      .catch((err) => {
+        // setOpen(false);
+        // setLoading(false);
+        // setSnackbar({
+        //   open: true,
+        //   type: "error",
+        //   message: "Something went wrong. Please try again",
+        // });
+        console.log(err);
+      });
+  };
+
   const platformsMessage = () => {
     return `You want ${service} for ${
       //if only web application is selected...
@@ -219,7 +265,7 @@ const EstimateModal = ({
 
   const websiteMessage = () => {
     return `You want ${
-      category[0] === "Basic" ? "a Basic Website" : `an ${category} Website`
+      category[0] === "Basic" ? "a Basic Website" : `an ${category} Website.`
     }`;
   };
 
@@ -325,7 +371,9 @@ const EstimateModal = ({
             <Grid item className={classes.sectionContainer}>
               <Typography variant="body1" paragraph>
                 We can create this custom digital solution for an estimated{" "}
-                <span className={classes.cost}>${cost.toFixed(2)}</span>
+                <span className={classes.totalCost}>
+                  ${totalCost.toFixed(2)}
+                </span>
               </Typography>
               <Typography variant="body1">
                 Fill out your name, number and email, place your request and
@@ -395,7 +443,7 @@ const EstimateModal = ({
         loading={loading}
         open={openConfirm}
         onClose={() => setOpenConfirm(false)}
-        // onClick={onConfirmClick}
+        onClick={onConfirmClick}
       />
     </Dialog>
   );
