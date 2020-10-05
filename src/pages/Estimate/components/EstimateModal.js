@@ -15,6 +15,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import check from "../../../assets/check.svg";
 import ModalConfirmation from "../../../components/ui/ModalConfirmation";
+import SnackbarMessage from "../../../components/ui/SnackbarMessage";
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -94,6 +95,12 @@ const EstimateModal = ({
 
   const [openConfirm, setOpenConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    type: "",
+    message: "",
+  });
 
   const checkName = (input) => {
     if (input === "") {
@@ -177,27 +184,29 @@ const EstimateModal = ({
         }
       )
       .then((res) => {
-        // setOpen(false);
+        setOpenConfirm(false);
+        onClose();
         setLoading(false);
-        // setName("");
-        // setEmail("");
-        // setPhone("");
-        // setMessage("");
-        // setSnackbar({
-        //   open: true,
-        //   type: "success",
-        //   message: "message sent successfully",
-        // });
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setSnackbar({
+          open: true,
+          type: "success",
+          message: "message sent successfully",
+        });
         console.log(res);
       })
       .catch((err) => {
-        // setOpen(false);
-        // setLoading(false);
-        // setSnackbar({
-        //   open: true,
-        //   type: "error",
-        //   message: "Something went wrong. Please try again",
-        // });
+        setOpenConfirm(false);
+        onClose();
+        setLoading(false);
+        setSnackbar({
+          open: true,
+          type: "error",
+          message: "Something went wrong. Please try again",
+        });
         console.log(err);
       });
   };
@@ -270,182 +279,194 @@ const EstimateModal = ({
   };
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      disableBackdropClick
-      disableEscapeKeyDown
-      maxWidth="md"
-      fullScreen={matchesXS}
-      // more than the header but less than the ModalConfirmation
-      style={{ zIndex: 1900 }}
-    >
-      <IconButton
-        disableRipple
-        className={classes.closeButton}
-        onClick={onClose}
+    <React.Fragment>
+      <Dialog
+        open={open}
+        onClose={onClose}
+        disableBackdropClick
+        disableEscapeKeyDown
+        maxWidth="md"
+        fullScreen={matchesXS}
+        // more than the header but less than the ModalConfirmation
+        style={{ zIndex: 1900 }}
       >
-        <CloseIcon color="primary" style={{ fontSize: "1.5rem" }} />
-      </IconButton>
+        <IconButton
+          disableRipple
+          className={classes.closeButton}
+          onClick={onClose}
+        >
+          <CloseIcon color="primary" style={{ fontSize: "1.5rem" }} />
+        </IconButton>
 
-      <Typography variant="h4" className={classes.modalHeader}>
-        Estimate
-      </Typography>
-      <DialogContent dividers>
-        <Grid container>
-          <Grid
-            item
-            container
-            md
-            direction="column"
-            className={classes.columnContainer}
-          >
-            <Grid item className={classes.sectionContainer}>
-              <TextField
-                label="Name"
-                id="name"
-                placeholder="John Doe"
-                fullWidth
-                error={nameHelper !== ""}
-                helperText={nameHelper}
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                  checkName(e.target.value);
-                }}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                style={{ margin: "1rem 0" }}
-                label="Email"
-                id="email"
-                placeholder="johndoe@example.com"
-                error={emailHelper !== ""}
-                helperText={emailHelper}
-                fullWidth
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  checkEmail(e.target.value);
-                }}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-              <TextField
-                label="Phone"
-                id="phone"
-                placeholder="(555) 555-5555"
-                error={phoneHelper !== ""}
-                helperText={phoneHelper}
-                fullWidth
-                value={phone}
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                  checkPhone(e.target.value);
-                }}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              />
-            </Grid>
-            <Grid item>
-              <TextField
-                id="message"
-                variant="outlined"
-                multiline
-                rows={matchesMD ? 8 : 5}
-                error={messageHelper !== ""}
-                helperText={messageHelper}
-                fullWidth
-                placeholder="Hello! Here's some more details about our project."
-                value={message}
-                onChange={(e) => {
-                  setMessage(e.target.value);
-                  checkMessage(e.target.value);
-                }}
-              />
-            </Grid>
-            <Grid item className={classes.sectionContainer}>
-              <Typography variant="body1" paragraph>
-                We can create this custom digital solution for an estimated{" "}
-                <span className={classes.totalCost}>
-                  ${totalCost.toFixed(2)}
-                </span>
-              </Typography>
-              <Typography variant="body1">
-                Fill out your name, number and email, place your request and
-                we'll get back to you with details moving forward and a final
-                price.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid
-            item
-            container
-            md
-            alignItems="center"
-            direction="column"
-            className={classes.columnContainer}
-            style={{ marginTop: "1.5rem" }}
-          >
-            {service === "Website Development" ? (
-              <Grid item container alignItems="center">
-                <Grid item xs={2}>
-                  <img src={check} alt="chekmark" />
-                </Grid>
-                <Grid item xs={10}>
-                  <Typography variant="body1">{websiteMessage()}</Typography>
-                </Grid>
+        <Typography variant="h4" className={classes.modalHeader}>
+          Estimate
+        </Typography>
+        <DialogContent dividers>
+          <Grid container>
+            <Grid
+              item
+              container
+              md
+              direction="column"
+              className={classes.columnContainer}
+            >
+              <Grid item className={classes.sectionContainer}>
+                <TextField
+                  label="Name"
+                  id="name"
+                  placeholder="John Doe"
+                  fullWidth
+                  error={nameHelper !== ""}
+                  helperText={nameHelper}
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    checkName(e.target.value);
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <TextField
+                  style={{ margin: "1rem 0" }}
+                  label="Email"
+                  id="email"
+                  placeholder="johndoe@example.com"
+                  error={emailHelper !== ""}
+                  helperText={emailHelper}
+                  fullWidth
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    checkEmail(e.target.value);
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+                <TextField
+                  label="Phone"
+                  id="phone"
+                  placeholder="(555) 555-5555"
+                  error={phoneHelper !== ""}
+                  helperText={phoneHelper}
+                  fullWidth
+                  value={phone}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                    checkPhone(e.target.value);
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
               </Grid>
-            ) : (
-              [platformsMessage(), featuresMessage(), restMessage()].map(
-                (message, index) => (
-                  <Grid
-                    item
-                    container
-                    alignItems="center"
-                    key={index}
-                    style={{ marginBottom: "1rem" }}
-                  >
-                    <Grid item xs={2}>
-                      <img src={check} alt="chekmark" />
-                    </Grid>
-                    <Grid item xs={10}>
-                      <Typography variant="body1">{message}</Typography>
-                    </Grid>
+              <Grid item>
+                <TextField
+                  id="message"
+                  variant="outlined"
+                  multiline
+                  rows={matchesMD ? 8 : 5}
+                  error={messageHelper !== ""}
+                  helperText={messageHelper}
+                  fullWidth
+                  placeholder="Hello! Here's some more details about our project."
+                  value={message}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    checkMessage(e.target.value);
+                  }}
+                />
+              </Grid>
+              <Grid item className={classes.sectionContainer}>
+                <Typography variant="body1" paragraph>
+                  We can create this custom digital solution for an estimated{" "}
+                  <span className={classes.totalCost}>
+                    ${totalCost.toFixed(2)}
+                  </span>
+                </Typography>
+                <Typography variant="body1">
+                  Fill out your name, number and email, place your request and
+                  we'll get back to you with details moving forward and a final
+                  price.
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid
+              item
+              container
+              md
+              alignItems="center"
+              direction="column"
+              className={classes.columnContainer}
+              style={{ marginTop: "1.5rem" }}
+            >
+              {service === "Website Development" ? (
+                <Grid item container alignItems="center">
+                  <Grid item xs={2}>
+                    <img src={check} alt="chekmark" />
                   </Grid>
+                  <Grid item xs={10}>
+                    <Typography variant="body1">{websiteMessage()}</Typography>
+                  </Grid>
+                </Grid>
+              ) : (
+                [platformsMessage(), featuresMessage(), restMessage()].map(
+                  (message, index) => (
+                    <Grid
+                      item
+                      container
+                      alignItems="center"
+                      key={index}
+                      style={{ marginBottom: "1rem" }}
+                    >
+                      <Grid item xs={2}>
+                        <img src={check} alt="chekmark" />
+                      </Grid>
+                      <Grid item xs={10}>
+                        <Typography variant="body1">{message}</Typography>
+                      </Grid>
+                    </Grid>
+                  )
                 )
-              )
-            )}
+              )}
 
-            <Grid item>
-              <Button
-                variant="contained"
-                className={classes.estimateButton}
-                onClick={onSubmitClick}
-              >
-                Place request
-                <SendIcon className={classes.sendIcon} />
-              </Button>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  className={classes.estimateButton}
+                  onClick={onSubmitClick}
+                >
+                  Place request
+                  <SendIcon className={classes.sendIcon} />
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </DialogContent>
-      {/*--Confirmation Modal--*/}
-      <ModalConfirmation
-        name={name}
-        email={email}
-        phone={phone}
-        message={message}
-        loading={loading}
-        open={openConfirm}
-        onClose={() => setOpenConfirm(false)}
-        onClick={onConfirmClick}
-      />
-    </Dialog>
+        </DialogContent>
+        {/*--Confirmation Modal--*/}
+        <ModalConfirmation
+          name={name}
+          email={email}
+          phone={phone}
+          message={message}
+          loading={loading}
+          open={openConfirm}
+          onClose={() => setOpenConfirm(false)}
+          onClick={onConfirmClick}
+        />
+      </Dialog>
+
+      {/*--Snackbar message--*/}
+      {snackbar.open && (
+        <SnackbarMessage
+          open={snackbar.open}
+          onClose={setSnackbar}
+          message={snackbar.message}
+          type={snackbar.type}
+        />
+      )}
+    </React.Fragment>
   );
 };
 
