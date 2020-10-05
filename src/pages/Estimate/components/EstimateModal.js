@@ -381,7 +381,11 @@ const EstimateModal = ({
                 />
               </Grid>
               <Grid item className={classes.sectionContainer}>
-                <Typography variant="body1" paragraph>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  style={{ lineHeight: "1.5rem" }}
+                >
                   We can create this custom digital solution for an estimated{" "}
                   <span className={classes.totalCost}>
                     ${totalCost.toFixed(2)}
