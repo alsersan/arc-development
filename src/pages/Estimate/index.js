@@ -243,6 +243,7 @@ const softwareQuestions = [
     options: [
       {
         id: 0,
+        type: "users",
         title: "0-10",
         subtitle: null,
         icon: person,
@@ -252,6 +253,7 @@ const softwareQuestions = [
       },
       {
         id: 1,
+        type: "users",
         title: "10-100",
         subtitle: null,
         icon: persons,
@@ -261,6 +263,7 @@ const softwareQuestions = [
       },
       {
         id: 2,
+        type: "users",
         title: "100+",
         subtitle: null,
         icon: people,
@@ -549,6 +552,45 @@ const Estimate = () => {
     }
   };
 
+  const disableEstimateButton = () => {
+    let disabled = false;
+
+    // emptySelections will always consist of at least 1 item in the array, because of the first services question
+    const selections = questions.map((question) =>
+      question.options
+        .filter((option) => option.selected)
+        .map((option) => option.type)
+    );
+
+    const emptySelections = selections.filter(
+      (selection) => selection.length === 0
+    );
+
+    const features = selections
+      .map((selection) =>
+        selection.filter((selection) => selection === "features")
+      )
+      .filter((selection) => selection.length > 0);
+
+    if (questions.length === 1) {
+      // Default  questions
+      disabled = true;
+    } else if (questions.length === 2) {
+      // Website questions
+      if (emptySelections.length === 2) disabled = true;
+    } else {
+      // software questions
+      if (features.length === 0) {
+        disabled = true;
+      } else if (emptySelections.length > 2 && features.length === 1) {
+        disabled = true;
+      } else if (emptySelections.length > 1 && features.length === 2) {
+        disabled = true;
+      }
+    }
+    return disabled;
+  };
+
   const calculateCost = () => {
     let cost = 0;
 
@@ -676,6 +718,7 @@ const Estimate = () => {
             <Button
               className={classes.estimateButton}
               variant="contained"
+              disabled={disableEstimateButton()}
               onClick={() => {
                 setOpenEstimate(true);
                 calculateCost();
