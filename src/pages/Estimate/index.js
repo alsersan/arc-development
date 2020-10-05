@@ -712,6 +712,7 @@ const Estimate = () => {
         customFeatures={customFeatures}
         users={users}
         category={category}
+        resetValues={() => setQuestions(defaultQuestions)}
       />
     </Grid>
   );

@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const EstimateModal = ({
+  resetValues,
   open,
   onClose,
   totalCost,
@@ -187,6 +188,7 @@ const EstimateModal = ({
         setOpenConfirm(false);
         onClose();
         setLoading(false);
+        resetValues();
         setName("");
         setEmail("");
         setPhone("");
