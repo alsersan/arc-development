@@ -365,7 +365,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   optionContainer: {
-    padding: " 0.2rem",
+    padding: " 0.1rem",
   },
   optionWrapper: {
     height: "15.5rem",
@@ -393,7 +393,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imageButton: {
+    border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: 10,
+    width: "14.5rem",
     [theme.breakpoints.down("sm")]: {
       width: "30rem",
     },
@@ -402,6 +404,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   activeImageButton: {
+    width: "14.5rem",
+    border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: 10,
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
@@ -707,17 +711,25 @@ const Estimate = () => {
                         <Grid
                           item
                           container
+                          direction="column"
                           xs={10}
                           md="auto"
                           justify="center"
                           className={classes.optionHeading}
                         >
-                          <Typography variant="h6" style={{ fontWeight: 600 }}>
-                            {option.title}
-                          </Typography>
-                          <Typography variant="body1">
-                            {option.subtitle}
-                          </Typography>
+                          <Grid item>
+                            <Typography
+                              variant="h6"
+                              style={{ fontWeight: 600 }}
+                            >
+                              {option.title}
+                            </Typography>
+                          </Grid>
+                          <Grid item>
+                            <Typography variant="body1">
+                              {option.subtitle}
+                            </Typography>
+                          </Grid>
                         </Grid>
                         <Grid item container xs={2} md="auto" justify="center">
                           <img
