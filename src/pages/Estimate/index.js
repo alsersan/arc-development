@@ -699,26 +699,11 @@ const Estimate = () => {
                       <Grid
                         item
                         container
-                        direction={matchesSM ? "row" : "column"}
+                        direction={matchesSM ? "row-reverse" : "column"}
                         justify={matchesSM ? "space-evenly" : undefined}
                         alignItems="center"
                         className={classes.optionWrapper}
                       >
-                        {matchesSM ? (
-                          <Grid
-                            item
-                            container
-                            xs={2}
-                            md="auto"
-                            justify="center"
-                          >
-                            <img
-                              src={option.icon}
-                              alt={option.iconAlt}
-                              className={classes.image}
-                            />
-                          </Grid>
-                        ) : null}
                         <Grid
                           item
                           container
@@ -734,21 +719,13 @@ const Estimate = () => {
                             {option.subtitle}
                           </Typography>
                         </Grid>
-                        {matchesSM ? null : (
-                          <Grid
-                            item
-                            container
-                            xs={2}
-                            md="auto"
-                            justify="center"
-                          >
-                            <img
-                              src={option.icon}
-                              alt={option.iconAlt}
-                              className={classes.image}
-                            />
-                          </Grid>
-                        )}
+                        <Grid item container xs={2} md="auto" justify="center">
+                          <img
+                            src={option.icon}
+                            alt={option.iconAlt}
+                            className={classes.image}
+                          />
+                        </Grid>
                       </Grid>
                     </IconButton>
                   </Grid>

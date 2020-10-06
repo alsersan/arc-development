@@ -157,25 +157,6 @@ const CustomSoftware = () => {
     },
   };
 
-  const lottieScale = (
-    <Grid
-      item
-      className={`${classes.animation} ${classes.animationMarginRight}`}
-    >
-      <Lottie options={scaleOptions} />
-    </Grid>
-  );
-
-  const lottieUX = (
-    <Grid
-      item
-      className={`${classes.animation} ${classes.animationMarginRight}`}
-      style={{ maxWidth: "8rem" }}
-    >
-      <Lottie options={uxOptions} />
-    </Grid>
-  );
-
   return (
     <Grid container direction="column">
       <Grid item container direction="column" className={classes.mainContainer}>
@@ -335,12 +316,16 @@ const CustomSoftware = () => {
           <Grid item>
             <Grid
               container
-              direction={matchesSM ? "column" : "row"}
+              direction={matchesSM ? "column-reverse" : "row"}
               alignItems="center"
               className={classes.animationContainer}
             >
-              {matchesSM ? null : lottieScale}
-
+              <Grid
+                item
+                className={`${classes.animation} ${classes.animationMarginRight}`}
+              >
+                <Lottie options={scaleOptions} />
+              </Grid>
               <Grid item className={classes.textContainer}>
                 <Typography variant="h4" paragraph>
                   Scale
@@ -351,7 +336,6 @@ const CustomSoftware = () => {
                   growth and reliabiilty.
                 </Typography>
               </Grid>
-              {matchesSM ? lottieScale : null}
             </Grid>
           </Grid>
         </Grid>
@@ -430,12 +414,17 @@ const CustomSoftware = () => {
           <Grid item>
             <Grid
               container
-              direction={matchesSM ? "column" : "row"}
+              direction={matchesSM ? "column-reverse" : "row"}
               alignItems="center"
               className={classes.animationContainer}
             >
-              {matchesSM ? null : lottieUX}
-
+              <Grid
+                item
+                className={`${classes.animation} ${classes.animationMarginRight}`}
+                style={{ maxWidth: "8rem" }}
+              >
+                <Lottie options={uxOptions} />
+              </Grid>
               <Grid item className={classes.textContainer}>
                 <Typography variant="h4" paragraph>
                   UserExperience Design
@@ -453,7 +442,6 @@ const CustomSoftware = () => {
                   experiences that solve problems rather than create new ones.
                 </Typography>
               </Grid>
-              {matchesSM ? lottieUX : null}
             </Grid>
           </Grid>
         </Grid>
