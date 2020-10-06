@@ -411,6 +411,9 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
+    "@media (hover:none)": {
+      backgroundColor: `${theme.palette.secondary.main} !important`,
+    },
     [theme.breakpoints.down("sm")]: {
       width: "30rem",
     },
@@ -431,11 +434,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
-    },
-    [theme.breakpoints.down("sm")]: {
-      "&:hover": {
-        backgroundColor: theme.palette.secondary.main,
-      },
     },
   },
 }));
