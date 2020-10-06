@@ -325,7 +325,7 @@ const useStyles = makeStyles((theme) => ({
   sectionContainer: {
     padding: "3rem 1rem 6rem",
     [theme.breakpoints.down("md")]: {
-      padding: "2rem 1rem 2rem",
+      padding: "2rem 1rem 0",
     },
     [theme.breakpoints.down("sm")]: {
       padding: "2rem 1rem 0",
@@ -365,22 +365,40 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   optionContainer: {
-    padding: " 0.5rem",
+    padding: " 0.2rem",
   },
   optionWrapper: {
     height: "15.5rem",
+    [theme.breakpoints.down("sm")]: {
+      height: "6rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "5rem",
+    },
   },
   optionHeading: {
     maxWidth: "13rem",
     marginBottom: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: 0,
+    },
   },
   image: {
     height: "9rem",
+    [theme.breakpoints.down("sm")]: {
+      height: "4rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "3rem",
+    },
   },
   imageButton: {
     borderRadius: 10,
     [theme.breakpoints.down("sm")]: {
-      width: "15rem",
+      width: "30rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
     },
   },
   activeImageButton: {
@@ -390,7 +408,16 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.light,
     },
     [theme.breakpoints.down("sm")]: {
-      width: "15rem",
+      width: "30rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
+  },
+  buttonContainer: {
+    marginTop: "4rem",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "2rem",
     },
   },
   estimateButton: {
@@ -400,6 +427,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     "&:hover": {
       backgroundColor: theme.palette.secondary.light,
+    },
+    [theme.breakpoints.down("sm")]: {
+      "&:hover": {
+        backgroundColor: theme.palette.secondary.main,
+      },
     },
   },
 }));
@@ -424,7 +456,7 @@ const Estimate = () => {
 
   const defaultOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: estimateAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -632,7 +664,7 @@ const Estimate = () => {
           <Typography variant="h2">Estimate</Typography>
         </Grid>
         <Grid item className={classes.animation}>
-          <Lottie options={defaultOptions} isStopped={true} />
+          <Lottie options={defaultOptions} />
         </Grid>
       </Grid>
       <Grid
@@ -667,11 +699,34 @@ const Estimate = () => {
                       <Grid
                         item
                         container
-                        direction="column"
+                        direction={matchesSM ? "row" : "column"}
+                        justify={matchesSM ? "space-evenly" : undefined}
                         alignItems="center"
                         className={classes.optionWrapper}
                       >
-                        <Grid item className={classes.optionHeading}>
+                        {matchesSM ? (
+                          <Grid
+                            item
+                            container
+                            xs={2}
+                            md="auto"
+                            justify="center"
+                          >
+                            <img
+                              src={option.icon}
+                              alt={option.iconAlt}
+                              className={classes.image}
+                            />
+                          </Grid>
+                        ) : null}
+                        <Grid
+                          item
+                          container
+                          xs={10}
+                          md="auto"
+                          justify="center"
+                          className={classes.optionHeading}
+                        >
                           <Typography variant="h6" style={{ fontWeight: 600 }}>
                             {option.title}
                           </Typography>
@@ -679,13 +734,21 @@ const Estimate = () => {
                             {option.subtitle}
                           </Typography>
                         </Grid>
-                        <Grid item>
-                          <img
-                            src={option.icon}
-                            alt={option.iconAlt}
-                            className={classes.image}
-                          />
-                        </Grid>
+                        {matchesSM ? null : (
+                          <Grid
+                            item
+                            container
+                            xs={2}
+                            md="auto"
+                            justify="center"
+                          >
+                            <img
+                              src={option.icon}
+                              alt={option.iconAlt}
+                              className={classes.image}
+                            />
+                          </Grid>
+                        )}
                       </Grid>
                     </IconButton>
                   </Grid>
@@ -699,7 +762,7 @@ const Estimate = () => {
           container
           alignItems="center"
           justify="space-evenly"
-          style={{ marginTop: "4rem" }}
+          className={classes.buttonContainer}
         >
           <Grid item>
             <IconButton
