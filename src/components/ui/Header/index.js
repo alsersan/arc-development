@@ -34,20 +34,20 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.modal + 1,
   },
   toolbarMargin: {
-    height: "5.5rem",
+    height: "4.5rem",
 
     [theme.breakpoints.down("md")]: {
-      height: "4.5rem",
+      height: "4rem",
     },
     [theme.breakpoints.down("xs")]: {
       height: "3.5rem",
     },
   },
   logo: {
-    height: "5.5rem",
+    height: "4.5rem",
     textTransform: "none",
     [theme.breakpoints.down("md")]: {
-      height: "4.5rem",
+      height: "4rem",
     },
     [theme.breakpoints.down("xs")]: {
       height: "3.5rem",

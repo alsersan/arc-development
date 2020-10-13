@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.tab,
     minWidth: 10,
     padding: "0 20px",
-    height: "5.5rem",
+    height: "4.5rem",
   },
   indicator: {
     height: 4,
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   estimateButton: {
-    margin: "1.15rem 20px",
+    margin: "auto 20px",
   },
   menu: {
     backgroundColor: theme.palette.common.blue,
