@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/arc-development/static/js/main.bcd8087a.chunk.js",
-    "main.js.map": "/arc-development/static/js/main.bcd8087a.chunk.js.map",
+    "main.js": "/arc-development/static/js/main.7679acef.chunk.js",
+    "main.js.map": "/arc-development/static/js/main.7679acef.chunk.js.map",
     "runtime-main.js": "/arc-development/static/js/runtime-main.bd6f039d.js",
     "runtime-main.js.map": "/arc-development/static/js/runtime-main.bd6f039d.js.map",
     "static/js/2.220af588.chunk.js": "/arc-development/static/js/2.220af588.chunk.js",
     "static/js/2.220af588.chunk.js.map": "/arc-development/static/js/2.220af588.chunk.js.map",
     "index.html": "/arc-development/index.html",
-    "precache-manifest.210e699f53c487716ac5c253f8ab6f79.js": "/arc-development/precache-manifest.210e699f53c487716ac5c253f8ab6f79.js",
+    "precache-manifest.e116e18543e9b094fc1e88d40e7d9285.js": "/arc-development/precache-manifest.e116e18543e9b094fc1e88d40e7d9285.js",
     "service-worker.js": "/arc-development/service-worker.js",
     "static/js/2.220af588.chunk.js.LICENSE.txt": "/arc-development/static/js/2.220af588.chunk.js.LICENSE.txt",
     "static/media/Custom Software Icon.svg": "/arc-development/static/media/Custom Software Icon.350387f5.svg",
@@ -71,6 +71,6 @@
   "entrypoints": [
     "static/js/runtime-main.bd6f039d.js",
     "static/js/2.220af588.chunk.js",
-    "static/js/main.bcd8087a.chunk.js"
+    "static/js/main.7679acef.chunk.js"
   ]
 }
